@@ -1,0 +1,49 @@
+<section class="section-space2">
+    <div class="container-1170">
+        <div class="w-100">
+            <p class="subheading"> {{ section.settings.subheading-txt }} </p>
+            <h3 class="main_heading"> {{ section.settings.heading-txt }} 
+                <span class="star-icon">
+                    {{ section.settings.right-side-icon }}
+                </span>
+            </h3>
+        </div>
+        <div class="w-100 image-box">
+            <img src="{{ section.settings.how_to_use_image |  img_url: '1000x1000' }}" alt="alt-image">
+        </div>
+    </div>
+</section>
+
+
+{% schema %}
+{
+    "name": "How To Use Block",
+    "settings": [
+        {
+            "type": "textarea",
+            "id": "subheading-txt",
+            "label": "Add your Subheading"
+        },
+        {
+            "type": "text",
+            "id": "heading-txt",
+            "label": "Add your Heading"
+        },
+        {
+            "type": "html",
+            "id": "right-side-icon",
+            "label": "Add Svg Icon"
+        },
+        {
+            "type": "image_picker",
+            "id": "how_to_use_image",
+            "label": "How To Use Image"
+        }
+    ],
+    "presets": [
+        {
+            "name": "How To Use Block"
+        }
+    ]
+}
+{% endschema %}

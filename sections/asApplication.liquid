@@ -1,0 +1,164 @@
+<style>
+    .app-section{
+        padding-top: {{ section.settings.top-pedding-desk }}px;
+        padding-bottom: {{ section.settings.bottom-pedding-desk }}px;
+    }
+    @media screen and (max-width: 768px) {
+        .app-section{
+            padding-top: {{ section.settings.top-pedding-tab }}px;
+            padding-bottom: {{ section.settings.bottom-pedding-tab }}px;
+        }
+    }
+
+    @media screen and (max-width: 425px) {
+        .app-section{
+            padding-top: {{ section.settings.top-pedding-mbl }}px;
+            padding-bottom: {{ section.settings.bottom-pedding-mbl }}px;
+        }
+    }
+</style>
+<script>
+
+</script>
+
+<section class="app-section">
+    <div class="container-1170">
+        <div>
+            <div class="main_bg_img">
+                <img src="{{ section.settings.backiages |  img_url: '' }}" alt="" class="display-desk">
+                <img src="{{ section.settings.mobilebackiages |  img_url: '' }}" alt="" class="display-mbl">
+                <div class="secgap">
+                    <div class="img_stores">
+                        {% for block in section.blocks %}
+                        <div class="img_stores-inner">
+                            <a href="{{ block.settings.atagyrl }}" class="app-bnt">
+                                <div class="playstore-icon"> {{ block.settings.application_icon }} </div>
+                                {{ block.settings.application_name }}
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name": "As Application Banner",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Top Spece"
+            },
+            {
+                "type": "range",
+                "id": "top-pedding-desk",
+                "label": "Desktop",
+                "min": 0,
+                "max": 100,
+                "default": 50,
+                "step": 5,
+                "unit": "px"
+            },
+            {
+                "type": "range",
+                "id": "top-pedding-tab",
+                "label": "Tablet",
+                "min": 0,
+                "max": 100,
+                "default": 50,
+                "step": 5,
+                "unit": "px"
+            },
+            {
+                "type": "range",
+                "id": "top-pedding-mbl",
+                "label": "Mobile",
+                "min": 0,
+                "max": 100,
+                "default": 50,
+                "step": 5,
+                "unit": "px"
+            },
+            {
+                "type": "header",
+                "content": "Bottom Spece"
+            },
+            {
+                "type": "range",
+                "id": "bottom-pedding-desk",
+                "label": "Desktop",
+                "min": 0,
+                "max": 100,
+                "default": 50,
+                "step": 5,
+                "unit": "px"
+            },
+            {
+                "type": "range",
+                "id": "bottom-pedding-tab",
+                "label": "Tablet",
+                "min": 0,
+                "max": 100,
+                "default": 50,
+                "step": 5,
+                "unit": "px"
+            },
+            {
+                "type": "range",
+                "id": "bottom-pedding-mbl",
+                "label": "Mobile",
+                "min": 0,
+                "max": 100,
+                "default": 50,
+                "step": 5,
+                "unit": "px"
+            },
+            {
+                "type": "header",
+                "content": "Background Image"
+            },
+            {
+                "type": "image_picker",
+                "id": "backiages",
+                "label": "Desktop"
+            },
+            {
+                "type": "image_picker",
+                "id": "mobilebackiages",
+                "label": "Mobile"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "image",
+                "name": "Appliction Button Image",
+                "limit": 2,
+                "settings": [
+                    {
+                        "type": "html",
+                        "id": "application_icon",
+                        "label": "Add Application Icon"
+                    },
+                    {
+                        "type": "text",
+                        "id": "application_name",
+                        "label": "Add Application Name"
+                    },
+                    {
+                        "type": "url",
+                        "label": "Add Button URL link",
+                        "id": "atagyrl"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "As Application Banner"
+            }
+        ]
+    }
+{% endschema %}

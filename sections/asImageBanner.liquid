@@ -1,0 +1,183 @@
+<style>
+    .asBanner_main{
+        padding-top: {{ section.settings.padding-top-desk }};
+        padding-bottom: {{ section.settings.padding-bottom-desk }};
+    }
+    
+    @media screen and (max-width: 1024px){
+        .asBanner_main{
+            padding-top: {{ section.settings.padding-top-taplop }};
+            padding-bottom: {{ section.settings.padding-bottom-taplop }};
+        }
+    }
+    
+    @media screen and (max-width: 768px){
+        .asBanner_main{
+            padding-top: {{ section.settings.padding-bottom-tab }};
+            padding-bottom: {{ section.settings.padding-bottom-tab }};
+        }
+    }
+    
+    @media screen and (max-width: 425px){
+        .asBanner_main{
+            padding-top: {{ section.settings.padding-top-mbl }};
+            padding-bottom: {{ section.settings.padding-bottom-mbl }};
+        }
+    }
+</style>
+
+<section class="asBanner_main">
+    <div class="container-1170">
+        <div class="asImage_banner">
+            <div class="asImage_banner_box">
+                <div>
+                    <h2 class="asBanner-ttl"> {{ section.settings.ttl_txt }} </h2>
+                    <p class="asBanner-subttl"> {{ section.settings.subttl_txt }} </p>
+                    <a href="{{ section.settings.btn_url }}" class="chat_with_us_btn"> {{ section.settings.btn_txt }} </a>
+                </div>
+            </div>
+            <div class="asImage_banner_box">
+                <div>
+                    <img src="{{ section.settings.add_image |  img_url: '' }}" alt="Banner Image">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "As Image Banner",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Specing Top"
+        },
+        {
+            "type": "range",
+            "id": "padding-top-desk",
+            "label": "Desktop",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding-top-taplop",
+            "label": "Laptop",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding-top-tab",
+            "label": "Tablet",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding-top-mbl",
+            "label": "Mobile",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "header",
+            "content": "Specing Bottom"
+        },
+        {
+            "type": "range",
+            "id": "padding-bottom-desk",
+            "label": "Desktop",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding-bottom-taplop",
+            "label": "Laptop",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding-bottom-tab",
+            "label": "Tablet",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding-bottom-mbl",
+            "label": "Mobile",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "header",
+            "content": "Banner Content"
+        },
+        {
+            "type": "text",
+            "id": "ttl_txt",
+            "label": "Add Title",
+            "default": "Event ticket printing services"
+        },
+        {
+            "type": "textarea",
+            "id": "subttl_txt",
+            "label": "Add Subtitle",
+            "default": "Need to print a large number of tickets and digitally track attendance? We are more than happy to deliver tickets to your door in no time. It is also possible to brand and customise tickets. All tickets are barcoded and can be scanned at entry with our free Access Control App."
+        },
+        {
+            "type": "text",
+            "id": "btn_txt",
+            "label": "Add Button Text",
+            "default": "Chat with us"
+        },
+        {
+            "type": "url",
+            "id": "btn_url",
+            "label": "Add Button URL"
+        },
+        {
+            "type": "header",
+            "content": "Add Banner Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "add_image",
+            "label": "Add Image"
+        }
+    ],
+    "presets": [
+        {
+            "name": "As Image Banner"
+        }
+    ]
+}
+{% endschema %}

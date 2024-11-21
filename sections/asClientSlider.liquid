@@ -1,0 +1,90 @@
+<section class="section-space2">
+    <div class="container-1170">
+        <div class="client_slider_inner">
+            <div>
+                <div class="swiper logo-swiper">
+                    <div class="swiper-wrapper">
+                        {% for block in section.blocks %}
+                           <div class="swiper-slide">
+                                <img src="{{ block.clinet_logo_image |  img_url: '' }}" alt="Client Logo" />
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="swiper feedback-swiper">
+                    <div class="swiper-wrapper">
+                        {% for block in section.blocks %}
+                            <div class="swiper-slide">
+                                <p>{{ block.client_feedback }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function updateSlideOpacity(swiper) {
+      swiper.slides.forEach((slide, index) => {
+        slide.style.opacity = index === swiper.activeIndex ? '1' : '0.4';
+      });
+    }
+
+    var feedbackSwiper = new Swiper(".feedback-swiper", {
+        freeMode: true,
+        watchSlidesProgress: true,
+    });
+    
+    var logoSwiper = new Swiper(".logo-swiper", {
+        spaceBetween: 10,
+        slidesPerView: 6,
+        centeredSlides: true,
+        loop: true,
+        on: {
+            slideChange: function () {
+                updateSlideOpacity(this);
+                feedbackSwiper.slideTo(this.activeIndex);
+            },
+            init: function () {
+                updateSlideOpacity(this);
+            }
+        }
+        thumbs: {
+            swiper: feedbackSwiper,
+        },
+    });
+</script>
+
+{% schema %}
+{
+    "name": "As Client Slider",
+    "settings": [],
+    "blocks": [
+        {
+            "name": "Client Logo Slider",
+            "type": "image_picker",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "clinet_logo_image",
+                    "label": "Add Client Logo"
+                },
+                {
+                    "type": "text",
+                    "id": "client_feedback",
+                    "label": "Add Client Feedback"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "As Client Slider"
+        }
+    ]
+}
+{% endschema %}

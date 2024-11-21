@@ -1,0 +1,97 @@
+<section class="section-space2">
+    <div class="container-1170">
+        <div class="w-100">
+            <p class="subheading"> {{ section.settings.subheading-txt }} 
+                <span class="star-icon">
+                    {{ section.settings.star-icon }}
+                </span>
+            </p>
+            <h3 class="main_heading"> {{ section.settings.heading-txt }}
+                <span class="three-line-icon">
+                    {{ section.settings.three-line-icon }}
+                </span>
+                <span class="round-ring-icon">
+                    {{ section.settings.round-ring-icon }}
+                </span>
+            </h3>
+        </div>
+        <div class="col-12 counter_banner_wrapper">
+            {% for block in section.blocks %}
+                <div class="custom-row">
+                    <div class="col-6 counter_banner_content">
+                        <div>
+                            <h2> {{ block.settings.counter_banner_heading }} </h2>
+                            <p> {{ block.settings.counter_banner_desc }} </p>
+                        </div>
+                    </div>
+                    <div class="col-6 counter_img_box">
+                        <div class="counter_img_inner">
+                            <img src="{{ block.settings.counter_banner_image | img_url: '' }}" alt="counter_image">
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Custom Counter Position",
+    "settings": [
+        {
+            "type": "textarea",
+            "id": "subheading-txt",
+            "label": "Add Your Description"
+        },
+        {
+            "type": "html",
+            "id": "star-icon",
+            "label": "Add Your Icon"
+        },
+        {
+            "type": "text",
+            "id": "heading-txt",
+            "label": "Add Your Title"
+        },
+        {
+            "type": "html",
+            "id": "three-line-icon",
+            "label": "Add Your Left Icon"
+        },
+        {
+            "type": "html",
+            "id": "round-ring-icon",
+            "label": "Add Your Right Icon"
+        }
+    ],
+    "blocks": [
+        {
+            "name": "counter position block",
+            "type": "image_picker",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "counter_banner_heading",
+                    "label": "Add Your Title"
+                },
+                {
+                    "type": "textarea",
+                    "id": "counter_banner_desc",
+                    "label": "Add Your Description"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "counter_banner_image",
+                    "label": "Add Your Image"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Custom Counter Position"
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,66 @@
+<section class="section-space2">
+    <div class="container-1170">
+        <div class="swiper asBrandSlider">
+            <div class="swiper-wrapper">
+                {% for brandSlider in section.blocks %}
+                    <div class="swiper-slide">
+                        <img src="{{ brandSlider.settings.brand_image |  img_url: '1000x1000' }}" alt="brand_logo">
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+</section>
+
+<script>
+    var asBrandSwiper = new Swiper(".asBrandSlider", {
+        slidesPerView: 9,
+        spaceBetween: 10,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+            425: {
+                slidesPerView: 3,
+                spaceBetween: 10
+            },
+            768: {
+                slidesPerView: 6,
+                spaceBetween: 10
+            },
+            1024: {
+                slidesPerView: 8,
+                spaceBetween: 10
+            }
+        },
+    });
+</script>
+
+
+{% schema %}
+{
+    "name": "As Brand Swiper Block",
+    "settings": [],
+    "blocks": [
+        {
+            "name": "Brand Image Block",
+            "type": "image_picker",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "brand_image",
+                    "label": "Add Your Brand Image"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "As Brand Swiper Block"
+        }
+    ]
+}
+{% endschema %}

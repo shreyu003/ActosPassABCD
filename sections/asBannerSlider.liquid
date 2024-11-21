@@ -1,0 +1,118 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<style>
+    .swiper :where(.swiper-button-next, .swiper-button-prev){
+        background: #fff;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+    .swiper-button-next:after, .swiper-button-prev:after{
+        font-size: 16px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #000;
+    }
+    .swiper-slide{
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+</style>
+
+
+<section class="py-4">
+    <div class="container-1170">
+        <div class="swiper MainSliderImage">
+            <div class="swiper-wrapper">
+                {% for swiper in section.blocks %}
+                    <div class="swiper-slide">
+                        <div class="slider_image">
+                            <img src="{{ swiper.settings.slider_banner_image |  img_url: '' }}" alt="slider_images">
+                        </div>
+                        <div class="swiper_content">
+                            <div class="content-inner">
+                                <h2 class="slider_heading"> {{ swiper.settings.slider_heading }} </h2>
+                                <p> {{ swiper.settings.slider_subtext }} </p>
+                                <div class="slider-btn-group">
+                                    <a href="{{ swiper.settings.button-url1 }}" class="common-btn btn-1"> {{ swiper.settings.button-txt1 }} </a>
+                                    <a href="{{ swiper.settings.button-url2 }}" class="common-btn btn-2"> {{ swiper.settings.button-txt2 }} </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    var MainSliderSwiper = new Swiper(".MainSliderImage", {
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+</script>
+
+{% schema %}
+{
+    "name": "Slider Banner Custom",
+    "settings": [
+        
+    ],
+    "blocks": [
+        {
+            "name": "Slider Banner Block",
+            "type": "image_picker",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "slider_banner_image",
+                    "label": "Add Slider Image"
+                },
+                {
+                    "type": "text",
+                    "id": "slider_heading",
+                    "label": "Add Heading"
+                },
+                {
+                    "type": "textarea",
+                    "id": "slider_subtext",
+                    "label": "Add SubHeading"
+                },
+                {
+                    "type": "text",
+                    "id": "button-txt1",
+                    "label": "Add Button Text"
+                },
+                {
+                    "type": "url",
+                    "id": "button-url1",
+                    "label": "Add Button URL"
+                },
+                {
+                    "type": "text",
+                    "id": "button-txt2",
+                    "label": "Add Button Text"
+                },
+                {
+                    "type": "url",
+                    "id": "button-url2",
+                    "label": "Add Button URL"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Slider Banner Custom"
+        }
+    ]
+}
+{% endschema %}

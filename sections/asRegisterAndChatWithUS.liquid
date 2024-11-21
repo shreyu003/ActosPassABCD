@@ -1,0 +1,109 @@
+<style>
+    .bg-inner{
+        width: 100%;
+        padding: 50px 0;
+        background-image: url('{{ section.settings.background_image |  img_url: '' }}');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+</style>
+
+<section class="bg-line">
+    <div class="bg-inner">
+        <div class="container-1170">
+            <div class="w-100">
+                <p class="subheading"> {{ section.settings.subheading-txt }} </p>
+                <h3 class="main_heading"> {{ section.settings.heading-txt }} 
+                    <span class="star-icon">
+                        {{ section.settings.right-side-icon }}
+                    </span>
+                </h3>
+            </div>
+            <div class="ticket_section">
+                {% for block in section.blocks %}
+                    <div class="ticket-inner">
+                        <div class="w-80">
+                            <h5> {{ block.settings.ticket-heading }} </h5>
+                            <p> {{ block.settings.sub_content-txt }} </p>
+                        </div>
+                        <div class="w-20">
+                            <a href="{{ block.settings.btn-url }}" class="common-btn btn-1"> {{ block.settings.btn-txt }} 
+                                <div class="svg-icon">
+                                    {{ block.settings.svg-icon }}
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% schema %}
+{
+    "name": "Register and Chat with Us",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "background_image",
+            "label": "Add Your BG Image"
+        },
+        {
+            "type": "textarea",
+            "id": "subheading-txt",
+            "label": "Add your Subheading"
+        },
+        {
+            "type": "text",
+            "id": "heading-txt",
+            "label": "Add your Heading"
+        },
+        {
+            "type": "html",
+            "id": "right-side-icon",
+            "label": "Add Svg Icon"
+        }
+    ],
+    "blocks": [
+        {
+            "name": "register and chat block",
+            "type": "text",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "ticket-heading",
+                    "label": "Add Your Heading"
+                },
+                {
+                    "type": "textarea",
+                    "id": "sub_content-txt",
+                    "label": "Add Your Sub Content"
+                },
+                {
+                    "type": "text",
+                    "id": "btn-txt",
+                    "label": "Add Your Button Text"
+                },
+                {
+                    "type": "url",
+                    "id": "btn-url",
+                    "label": "Add Your Button URL"
+                },
+                {
+                    "type": "html",
+                    "id": "svg-icon",
+                    "label": "Add Your Icon"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Register and Chat Block"
+        }
+    ]
+}
+{% endschema %}

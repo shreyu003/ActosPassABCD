@@ -1,0 +1,447 @@
+<style>
+    .event-main-section{
+        padding-top: {{ section.settings.padding-top-desk }}px;
+        padding-bottom: {{ section.settings.padding-bottom-desk }}px;
+    }
+    @media screen and (max-width: 768px) {
+        .event-main-section{
+            padding-top: {{ section.settings.padding-top-tab }}px;
+            padding-bottom: {{ section.settings.padding-bottom-tab }}px;
+        }
+    }
+    @media screen and (max-width: 425px) {
+        .event-main-section{
+            padding-top: {{ section.settings.padding-top-mbl }}px;
+            padding-bottom: {{ section.settings.padding-bottom-mbl }}px;
+        }
+    }
+</style>
+
+<section class="event-main-section">
+    <div class="container-1170">
+        <div class="event_tab_view">
+            <ul class="tabs-wrapper">
+                <li class="tab tab-upcoming active">upcoming</li>
+                <li class="tab tab-past">history</li>
+            </ul>
+        </div>
+        <div class="upcoming_eventgrid_main">
+            <h2 class="event-main-heading">{{ section.settings.page_heading1 }}</h2>
+            <div class="event_ticket_grid" id="eventTicketGridUpcoming"></div>
+            <div id="eventTicketUpcoming" class="event-ticket-popup" style="display: none;">
+                <div class="event-popup-wrapper">
+                    <button class="event_popup_close_btn" onclick="hidePopup()"> {% render 'asPopUpCloseSign' %} </button>
+                    <div class="event-popup-inner" id="upcomingEventPopupInner"></div>
+                </div>
+            </div>
+        </div>
+        <div class="past_eventgrid_main">
+            <h2 class="event-main-heading">{{ section.settings.page_heading2 }}</h2>
+            <div class="event_ticket_grid" id="eventTicketGridPast"></div>
+            <div id="eventTicketPast" class="event-ticket-popup" style="display: none;">
+                <div class="event-popup-wrapper">
+                    <button class="event_popup_close_btn" onclick="hidePopup()"> {% render 'asPopUpCloseSign' %} </button>
+                    <div class="event-popup-inner" id="pastEventPopupInner"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+
+    let currentBookTicketId = null;
+    function showPopup() {
+        document.getElementById("eventTicketUpcoming").style.display = "block";
+        document.getElementById("eventTicketPast").style.display = "block";
+    }
+
+    function hidePopup() {
+        document.getElementById("eventTicketUpcoming").style.display = "none";
+        document.getElementById("eventTicketPast").style.display = "none";
+    }
+
+    // Fetch Upcoming data from the API
+    fetch("https://actopassapidev.actoscript.com/api/BookTicketList/AllTicket/8080808080/Upcoming")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok " + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            const ticketList = document.getElementById("eventTicketGridUpcoming");
+            if (data && data.length > 0) {
+                data.forEach((ticket) => {
+                    const ticketDiv = document.createElement("div");
+                    ticketDiv.classList.add("as_ticket-item");
+                    ticketDiv.innerHTML = `
+                            <div class="as_event_image">
+                                <img src="${ticket.EventMainImage}" alt="${ticket.EventName} Image" />
+                            </div>
+                            <div class="as_event_content">
+                                <h4 class="as_event-heading"> ${ticket.EventName} </h4>
+                                <p class="asDateTimeEvent"> ${formatDate(ticket.EventDate)} | ${ticket.EventTime} </p>
+                                <p class="asEventAddress"> ${ticket.EventAddress} </p>
+                                <div class="eventTicketType">
+                                    <span> ${ticket.SubDetails[0]?.TicketType}</span>
+                                    <span>(₹${parseFloat(ticket.SubDetails[0]?.BookingAmount).toFixed(2)}) :</span>
+                                    <span> ${ticket.SubDetails[0]?.AvailableTicketQty} Tickets </span>
+                                </div>
+                                <button class="event_see_more_btn" data-bookTicketId="${ticket.BookTicketid}"> {{ section.settings.see_more_txt }} </button>
+                            </div>
+                        `;
+                    ticketList.appendChild(ticketDiv);
+                });
+
+                // Add event listeners to all "see more" buttons
+                document.querySelectorAll(".event_see_more_btn").forEach(button => {
+                    button.addEventListener("click", function () {
+                        const bookTicketId = this.getAttribute("data-bookTicketId");
+                        console.log("Booking ID:", bookTicketId); // Log booking ID for debugging
+                        showTicketDetailsUpcoming(bookTicketId);
+                        showPopup();
+                    });
+                });
+            } else {
+                ticketList.innerHTML = "<p>No upcoming tickets found.</p>";
+            }
+        })
+        .catch(error => {
+            console.error("There was a problem with the fetch operation:", error);
+            document.getElementById("eventTicketGridUpcoming").innerHTML = "<p>Error fetching tickets. Please try again later.</p>";
+        });
+
+
+    async function showTicketDetailsUpcoming(bookTicketId) {
+        try {
+            const response = await fetch(`https://actopassapidev.actoscript.com/api/BookTicketList/BookTicketid/${bookTicketId}`);
+
+            if (!response.ok) {
+                throw new Error("Network response was not ok: " + response.statusText);
+            }
+            const popupInner = document.getElementById("upcomingEventPopupInner");
+            const tickets = await response.json();
+            console.log("API Response:", tickets); // Debugging log
+
+
+            const ticket = tickets[0]; // Assuming the response is an array
+            const subDetail = ticket.SubDetails[0];
+
+            // Populate the popup with the fetched data
+            popupInner.innerHTML = `
+            <div>
+                <div class="popup-inner-content">
+                    <div class="popup-inner-content-main-detail">
+                        <h2> ${ticket.EventName} </h2>
+                        <p> ${formatDate(ticket.EventDate)} | ${ticket.EventTime} </p>
+                        <p class="event-full-addr"> ${ticket.EventAddress} </p>
+                    </div>
+                    <div class="popup-inner-content-img">
+                        <div class="popup-content-img">
+                            <img src="${ticket.EventMainImage}" alt="${ticket.EventName}" />
+                        </div>
+                    </div>
+                </div>
+                <div class="popup-inner-ticket-status">
+                    <div class="event-display-txt">
+                        <p> ${subDetail.DisplayText} </p>
+                    </div>
+                    <div class="event-available event-tkt-txt">
+                        <p> ${subDetail.AvailableTicketQty} available </p>
+                    </div>
+                    <div class="event-scanned event-tkt-txt">
+                        <p> ${subDetail.SacnneTicketQty} scanned </p>
+                    </div>
+                    <div class="event-total event-tkt-txt">
+                        <p> ${subDetail.BookingTicketQty} total </p>
+                    </div>
+                </div>
+                <div class="popup-inner-content-other-detail">
+                    <div>
+                        <b> <p> ${ticket.BookingTicketQty}Ticket${ticket.BookingTicketQty > 1 ? "(S)" : ""} </p> </b>
+                        <h3 class="event-ticket-type"> ${subDetail.TicketType}</h3>
+                        <p class="booking-id-txt"> Booking ID: ${subDetail.BookingId}</p>
+                        <h3 class="booking-total-amount"> total amount: ₹${ticket.TotalAmount} </h3>
+                        <button class="share-ticket-btn"> share ticket</button>
+                    </div>
+                    <div>
+                        <input type="text" id="upcoming-text-to-qr" value="${subDetail.ORCode}" readonly style="display: none;">
+                        <div id="upcoming-qrcode"></div>
+                    </div>
+                </div>
+            </div>
+        `;
+            // Generate QR code
+            const qrCodeContainer = document.getElementById("upcoming-qrcode");
+            const text = document.getElementById("upcoming-text-to-qr").value;
+
+            if (text.trim()) {
+                new QRCode(qrCodeContainer, {
+                    text: text,
+                    width: 150,
+                    height: 150
+                });
+            } else {
+                console.error("QR Code Text is empty.");
+            }
+        } catch (error) {
+            console.error("Error fetching ticket details:", error);
+            popupInner.innerHTML = "<p>Error fetching ticket details. Please try again later.</p>";
+        }
+    }
+
+
+    // Fetch Past data from the API
+    fetch("https://actopassapidev.actoscript.com/api/BookTicketList/AllTicket/8080808080/History")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok " + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            const ticketList = document.getElementById("eventTicketGridPast");
+            if (data && data.length > 0) {
+                data.forEach((ticket) => {
+                    const ticketDiv = document.createElement("div");
+                    ticketDiv.classList.add("as_ticket-item");
+                    ticketDiv.innerHTML = `
+                            <div class="as_event_image">
+                                <img src="${ticket.EventMainImage}" alt="${ticket.EventName} Image" />
+                            </div>
+                            <div class="as_event_content">
+                                <h4 class="as_event-heading"> ${ticket.EventName} </h4>
+                                <p class="asDateTimeEvent"> ${formatDate(ticket.EventDate)} | ${ticket.EventTime} </p>
+                                <p class="asEventAddress"> ${ticket.EventAddress} </p>
+                                <div class="eventTicketType">
+                                    <span> ${ticket.SubDetails[0]?.TicketType}</span>
+                                    <span>(₹${parseFloat(ticket.SubDetails[0]?.BookingAmount).toFixed(2)}) :</span>
+                                    <span> ${ticket.SubDetails[0]?.AvailableTicketQty} Tickets </span>
+                                </div>
+                                <button class="event_see_more_btn" data-bookTicketId="${ticket.BookTicketid}"> {{ section.settings.see_more_txt }} </button>
+                            </div>
+                        `;
+                    ticketList.appendChild(ticketDiv);
+                });
+
+                // Add event listeners to all "see more" buttons
+                document.querySelectorAll(".event_see_more_btn").forEach(button => {
+                    button.addEventListener("click", function () {
+                        const bookTicketId = this.getAttribute("data-bookTicketId");
+                        console.log("Booking ID:", bookTicketId); // Log booking ID for debugging
+                        showTicketDetailsPast(bookTicketId);
+                        showPopup();
+                    });
+                });
+            } else {
+                ticketList.innerHTML = "<p>No upcoming tickets found.</p>";
+            }
+        })
+        .catch(error => {
+            console.error("There was a problem with the fetch operation:", error);
+            document.getElementById("eventTicketGridUpcoming").innerHTML = "<p>Error fetching tickets. Please try again later.</p>";
+        });
+
+
+    async function showTicketDetailsPast(bookTicketId) {
+        try {
+            const response = await fetch(`https://actopassapidev.actoscript.com/api/BookTicketList/BookTicketid/${bookTicketId}`);
+
+            if (!response.ok) {
+                throw new Error("Network response was not ok: " + response.statusText);
+            }
+            const popupInner = document.getElementById("pastEventPopupInner");
+            const tickets = await response.json();
+            console.log("API Response:", tickets); // Debugging log
+
+
+            const ticket = tickets[0]; // Assuming the response is an array
+            const subDetail = ticket.SubDetails[0];
+
+            // Populate the popup with the fetched data
+            popupInner.innerHTML = `
+            <div>
+                <div class="popup-inner-content">
+                    <div class="popup-inner-content-main-detail">
+                        <h2> ${ticket.EventName} </h2>
+                        <p> ${formatDate(ticket.EventDate)} | ${ticket.EventTime} </p>
+                        <p class="event-full-addr"> ${ticket.EventAddress} </p>
+                    </div>
+                    <div class="popup-inner-content-img">
+                        <div class="popup-content-img">
+                            <img src="${ticket.EventMainImage}" alt="${ticket.EventName}" />  
+                        </div>
+                    </div>
+                </div>
+                <div class="popup-inner-ticket-status">
+                    <div class="event-display-txt">
+                        <p> ${subDetail.DisplayText} </p>
+                    </div>
+                    <div class="event-available event-tkt-txt">
+                        <p> ${subDetail.AvailableTicketQty} available </p>
+                    </div>
+                    <div class="event-scanned event-tkt-txt">
+                        <p> ${subDetail.SacnneTicketQty} scanned </p>
+                    </div>
+                    <div class="event-total event-tkt-txt">
+                        <p> ${subDetail.BookingTicketQty} total </p>
+                    </div>
+                </div>
+                <div class="popup-inner-content-other-detail">
+                    <div>
+                        <b> <p> ${ticket.BookingTicketQty}Ticket${ticket.BookingTicketQty > 1 ? "(S)" : ""} </p> </b>
+                        <h3 class="event-ticket-type"> ${subDetail.TicketType}</h3>
+                        <p class="booking-id-txt"> Booking ID: ${subDetail.BookingId}</p>
+                        <h3 class="booking-total-amount"> total amount: ₹${ticket.TotalAmount} </h3>
+                        <button class="share-ticket-btn"> share ticket</button>
+                    </div>
+                    <div>
+                        <input type="text" id="past-text-to-qr" value="${subDetail.ORCode}" readonly style="display: none;">
+                        <div id="past-qrcode"></div>
+                    </div>
+                </div>
+            </div>
+        `;
+            // Generate QR code
+            const qrCodeContainer = document.getElementById("past-qrcode");
+            const text = document.getElementById("past-text-to-qr").value;
+
+            if (text.trim()) {
+                new QRCode(qrCodeContainer, {
+                    text: text,
+                    width: 150,
+                    height: 150
+                });
+            } else {
+                console.error("QR Code Text is empty.");
+            }
+        } catch (error) {
+            console.error("Error fetching ticket details:", error);
+            popupInner.innerHTML = "<p>Error fetching ticket details. Please try again later.</p>";
+        }
+    }
+
+    const tabs = document.querySelectorAll('.tabs-wrapper li');
+    const upcomingEventGrid = document.querySelector('.upcoming_eventgrid_main');
+    const pastEventGrid = document.querySelector('.past_eventgrid_main');
+
+    // Add click event to each tab
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Remove active class from all tabs
+            tabs.forEach(tab => tab.classList.remove('active'));
+            // Add active class to the clicked tab
+            tab.classList.add('active');
+            
+            // Check which tab was clicked
+            if (tab.classList.contains('tab-upcoming')) {
+                upcomingEventGrid.style.display = 'block';
+                pastEventGrid.style.display = 'none';
+            } else if (tab.classList.contains('tab-past')) {
+                upcomingEventGrid.style.display = 'none';
+                pastEventGrid.style.display = 'block';
+            }
+        });
+    });
+</script>
+
+
+{% schema %}
+    {
+        "name": "AsTicket Upcoming History",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Specing Top"
+            },
+            {
+                "type": "range",
+                "id": "padding-top-desk",
+                "label": "Desktop",
+                "min": 0,
+                "max": 100,
+                "step": 5,
+                "default": 50,
+                "unit": "px"
+            },
+            {
+                "type": "range",
+                "id": "padding-top-tab",
+                "label": "Tablet",
+                "min": 0,
+                "max": 100,
+                "step": 5,
+                "default": 50,
+                "unit": "px"
+            },
+            {
+                "type": "range",
+                "id": "padding-top-mbl",
+                "label": "Mobile",
+                "min": 0,
+                "max": 100,
+                "step": 5,
+                "default": 50,
+                "unit": "px"
+            },
+            {
+                "type": "header",
+                "content": "Specing Bottom"
+            },
+            {
+                "type": "range",
+                "id": "padding-bottom-desk",
+                "label": "Desktop",
+                "min": 0,
+                "max": 100,
+                "step": 5,
+                "default": 50,
+                "unit": "px"
+            },
+            {
+                "type": "range",
+                "id": "padding-bottom-tab",
+                "label": "Tablet",
+                "min": 0,
+                "max": 100,
+                "step": 5,
+                "default": 50,
+                "unit": "px"
+            },
+            {
+                "type": "range",
+                "id": "padding-bottom-mbl",
+                "label": "Mobile",
+                "min": 0,
+                "max": 100,
+                "step": 5,
+                "default": 50,
+                "unit": "px"
+            },
+            {
+                "type": "text",
+                "id": "page_heading1",
+                "label": "Add Heading 1",
+                "default": "Upcoming Events"
+            },
+            {
+                "type": "text",
+                "id": "page_heading2",
+                "label": "Add Heading 2",
+                "default": "History Events"
+            },
+            {
+                "type": "text",
+                "id": "see_more_txt",
+                "label": "Add Button Text",
+                "default": "see more"
+            }
+        ],
+        "presets": [
+            {
+                "name": "As Ticket Upcoming & History"
+            }
+        ]
+    }
+{% endschema %}

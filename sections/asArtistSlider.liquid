@@ -1,0 +1,381 @@
+<style>
+    .artist_slider_section{
+        padding-top: {{ section.settings.padding-top-desk }}px;
+        padding-bottom: {{ section.settings.padding-bottom-desk }}px;
+    }
+
+    @media screen and (max-width: 1024px){
+        .artist_slider_section{
+            padding-top: {{ section.settings.padding-top-taplop }}px;
+            padding-bottom: {{ section.settings.padding-bottom-taplop }}px;
+        }
+    }
+
+    @media screen and (max-width: 768px){
+        .artist_slider_section{
+            padding-top: {{ section.settings.padding-top-tab }}px;
+            padding-bottom: {{ section.settings.padding-bottom-tab }}px;
+        }
+    }
+    
+    @media screen and (max-width: 425px){
+        .artist_slider_section{
+            padding-top: {{ section.settings.padding-top-mbl }}px;
+            padding-bottom: {{ section.settings.padding-bottom-mbl }}px;
+        }
+    }
+</style>
+
+<section class="artist_slider_section">
+    <div class="container-1170">
+        <div class="heading_sec">
+            <div class="title-sec">
+                <div>
+                    <p class="astitals">{{ section.settings.astital }}
+                        {% render 'subtitle-icon' %}
+                    </p>
+                </div>
+                <div class="title_icon_box">
+                    <div class="title-icon-left">
+                        {% render 'title-icon' %}
+                    </div>
+                    <h3 class="title">
+                        {{ section.settings.brand_title }}
+                    </h3>
+                    <div class="title-icon-right">
+                        {% render 'title-icon-right' %}
+                    </div>
+                </div>
+            </div>
+            <div class="button-block">
+                <a href="/collections/{{ section.settings.all_prodcut_tag_wise.handle }}">
+                    {{ section.settings.view_all_text }}
+                    {{ section.settings.view_all_icon }}
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container-1170">
+        <div class="artist_section">
+            <div class="swiper artistSwiper">
+                <div class="swiper-wrapper">
+                    {% for prd in section.settings.artist_collection.products %}
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <div class="face face-front">
+                                    <div class="artist_image">
+                                        <img src="{{ prd.featured_image | img_url: '600x600' }}" alt="{{ prd.title }}">
+                                    </div>
+                                </div>
+                                <div class="face face-back">
+                                    <button class="see_more_btn artistPopUpOpenBtn" data-product-handle="{{ prd.handle }}">
+                                        {{ section.settings.btn_txt }}
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="followers_box">
+                                {% assign followers_string = prd.variants.first.title %}
+                                {% assign followers_count = followers_string | plus: 0 %}  <!-- Convert to number -->
+                                
+                                {% if followers_count < 1000 %}
+                                    <p id="followers_count">{{ followers_count }}</p>
+                                {% else %}
+                                    {% assign followers_k = followers_count | divided_by: 1000.0 %}  <!-- Convert to thousands with decimal support -->
+                                    {% if followers_count == 1000 %}
+                                    <p id="followers_count">1K</p>
+                                    {% else %}
+                                    <p id="followers_count">{{ followers_k | round: 1 }}K</p>  <!-- Round to 1 decimal place -->
+                                    {% endif %}
+                                {% endif %}
+                                
+                                <p> {{ section.settings.followers-txt }} </p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="swiper-pagination artistSwiperPagination"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="artist_popup" id="artistPopup">
+    <div class="artist_popup_wrapper">
+        <div class="artist_popup-inner">
+            <div class="artist_popup-img">
+                <div class="artist_popup-img-inner">
+                    <img src="" alt="Artist Product Image" id="popupImage">
+                </div>
+                <h3 class="artist_name" id="artistName"></h3>
+            </div>
+            <div class="artist_description" id="artistDescription"></div>
+            <button id="closePopup" class="close_popup-btn">
+                {% render 'asPopUpCloseSign' %}
+            </button>
+        </div>
+    </div>
+</section>
+
+<script>
+    const artistPopup = document.getElementById('artistPopup');
+    const artistDescription = document.getElementById('artistDescription');
+    const popupImage = document.getElementById('popupImage');
+    const closePopup = document.getElementById('closePopup');
+    const artistName = document.getElementById('artistName');
+
+    document.querySelector('.artistSwiper').addEventListener('click', function (event) {
+        if (event.target.classList.contains('artistPopUpOpenBtn')) {
+            const artistProductHandle = event.target.dataset.productHandle;
+
+            if (artistProductHandle) {
+                fetch(`/products/${artistProductHandle}.js`)
+                    .then(response => response.json())
+                    .then(product => {
+                        // Set product image (first image in images array)
+                        if (product.images && product.images.length > 0) {
+                            popupImage.src = product.images[0];
+                            popupImage.alt = product.title;
+                        }
+
+                        // Set product title
+                        artistName.innerHTML = product.title;
+                        // Clear the artist description div and insert the new content
+                        artistDescription.innerHTML = product.description;
+                        // Select all <p> tags within the artist description
+                        const paragraphs = artistDescription.querySelectorAll('p');
+
+                        if (paragraphs.length > 2) {
+                            // Show only the first two paragraphs by adding the 'show' class
+                            paragraphs.forEach((p, index) => {
+                                if (index < 2) {
+                                    p.classList.add('show');
+                                }
+                            });
+
+                            // Create and insert the "Read More" button if it doesn't exist
+                            let readMoreBtn = document.querySelector('#readMoreBtn');
+                            if (!readMoreBtn) {
+                                readMoreBtn = document.createElement('button');
+                                readMoreBtn.id = 'readMoreBtn';
+                                readMoreBtn.innerText = 'Read More';
+                                artistDescription.appendChild(readMoreBtn);
+                            }
+
+                            // Add event listener to show all paragraphs on click
+                            readMoreBtn.addEventListener('click', function () {
+                                paragraphs.forEach(p => p.classList.add('show'));
+                                readMoreBtn.style.display = 'none'; // Hide the button after click
+                            });
+                        } else {
+                            // If less than 2 paragraphs, show all
+                            paragraphs.forEach(p => p.classList.add('show'));
+                        }
+
+                        // Show the popup
+                        artistPopup.style.display = 'block';
+                    })
+                    .catch(error => {
+                        console.error('Error fetching product details:', error);
+                    });
+            }
+        }
+    });
+
+    closePopup.addEventListener('click', function () {
+        artistPopup.style.display = 'none';
+    });
+</script>
+
+{% schema %}
+{
+    "name": "as artist slider",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Page Header Title"
+        },
+        {
+            "type": "text",
+            "id": "astital",
+            "label": "Sub title"
+        },
+        {
+            "type": "text",
+            "id": "brand_title",
+            "label": "Title"
+        },
+        {
+            "type": "collection",
+            "id": "artist_collection",
+            "label": "Add Collection"
+        },
+        {
+            "type": "header",
+            "content": "Specing Top"
+        },
+        {
+            "type": "range",
+            "id": "padding-top-desk",
+            "label": "Desktop",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding-top-taplop",
+            "label": "Laptop",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding-top-tab",
+            "label": "Tablet",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding-top-mbl",
+            "label": "Mobile",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "header",
+            "content": "Specing Bottom"
+        },
+        {
+            "type": "range",
+            "id": "padding-bottom-desk",
+            "label": "Desktop",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding-bottom-taplop",
+            "label": "Laptop",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding-bottom-tab",
+            "label": "Tablet",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding-bottom-mbl",
+            "label": "Mobile",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "header",
+            "content": "See More Button"
+        },
+        {
+            "type": "text",
+            "id": "btn_txt",
+            "label": "Button Text",
+            "default": "See More"
+        },
+        {
+            "type": "header",
+            "content": "View Button"
+        },
+        {
+            "type": "text",
+            "id": "view_all_text",
+            "label": "View All Text"
+        },
+        {
+            "type": "html",
+            "id": "view_all_icon",
+            "label": "View All Icon"
+        },
+        {
+            "type": "color",
+            "id": "view_all_text_color",
+            "label": "View All Text Color",
+            "default": "#000000"
+        },
+        {
+            "type": "range",
+            "id": "view_all_text_size",
+            "label": "View All Text Font Size",
+            "min": 10,
+            "max": 30,
+            "default": 16,
+            "unit": "px",
+            "step": 2
+        },
+        {
+            "type": "select",
+            "id": "view_all_text_weight",
+            "label": "View All Text Font Weight",
+            "options": [
+                {
+                    "value": "300",
+                    "label": "Light"
+                },
+                {
+                    "value": "400",
+                    "label": "Normal"
+                },
+                {
+                    "value": "500",
+                    "label": "Medium"
+                },
+                {
+                    "value": "600",
+                    "label": "Semi-Bold"
+                },
+                {
+                    "value": "700",
+                    "label": "Bold"
+                }
+            ],
+            "default": "400"
+        },
+        {
+            "type": "text",
+            "id": "followers-txt",
+            "label": "Add Followers Text",
+            "default": "Followers"
+        }
+    ],
+    "presets": [
+        {
+            "name": "As Artist Slider"
+        }
+    ]
+}
+{% endschema %}

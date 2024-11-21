@@ -1,0 +1,254 @@
+<style>
+    .vanue-grid{
+        padding-top: {{ section.settings.padding_top_desk }}px;
+        padding-bottom: {{ section.settings.padding_bottom_desk }}px;
+    }
+    .button-block a {
+        text-decoration: none;
+        display: inline-block;
+        padding: 8px 16px;
+        color: {{ section.settings.view_all_text_color }};
+        font-size: {{ section.settings.view_all_text_size }}px;
+        font-weight: {{ section.settings.view_all_text_weight }};
+    }
+
+    @media screen and (max-width: 1024px){
+        .vanue-grid{
+            padding-top: {{ section.settings.padding_top_teplop }}px;
+            padding-bottom: {{ section.settings.padding_bottom_teplop }}px;
+        }
+    }
+    @media screen and (max-width: 768px){
+        .vanue-grid{
+            padding-top: {{ section.settings.padding_top_tab }}px;
+            padding-bottom: {{ section.settings.padding_bottom_tab }}px;
+        }
+    }
+    @media screen and (max-width: 425px){
+        .vanue-grid{
+            padding-top: {{ section.settings.padding_top_mbl }}px;
+            padding-bottom: {{ section.settings.padding_bottom_mbl }}px;
+        }
+    }
+</style>
+
+<section class="vanue-grid">
+    <!-- Container for Title and Subtitle -->
+    <div class="container-1170">
+        <div class="heading_sec">
+            <div class="title-sec">
+                <div>
+                    <p class="astitals">{{ section.settings.astital }}
+                        {% render 'subtitle-icon' %}
+                    </p>
+                </div>
+                <div class="title_icon_box">
+                    <div class="title-icon-left">
+                        {% render 'title-icon' %}
+                    </div>
+                    <h3 class="title">
+                        {{ section.settings.brand_title }}
+                    </h3>
+                    <div class="title-icon-right">
+                        {% render 'title-icon-right' %}
+                    </div>
+                </div>
+            </div>
+            <div class="button-block">
+                <a href="/collections/{{ section.settings.vanue_collection.handle }}">
+                    {{ section.settings.view_all_text }}
+                    {{ section.settings.view_all_icon }}
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container-1170">
+        <div class="grid4column">
+            {% for vnu in section.settings.vanue_collection.products %}
+                <div class="venue_card" data-city-tag="{{ vnu.tags | join: ',' }}">
+                    <a href="{{ vnu.url }}">
+                        <div class="product_img">
+                            <img src="{{ vnu.featured_image | img_url: '' }}" alt="{{ vnu.title }}">
+                        </div>
+                        <div class="product_content">
+                            <h4> {{ vnu.title | truncate: 30 }} </h4>
+                            <p> {{ vnu.description }} </p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="error_msg" data-section="venue">
+            <div class="error_msg_inner">
+                <img src="{{ section.settings.venue_not_available | img_url: '' }}" alt="error_image">
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "as venue collection",
+    "settings": [
+       {
+            "type": "text",
+            "id": "astital",
+            "label": "Subtitle"
+        },
+        {
+            "type": "text",
+            "id": "brand_title",
+            "label": "Title"
+        },
+        {
+            "type": "collection",
+            "id": "vanue_collection",
+            "label": "Add Collection"
+        },
+        {
+            "type": "header",
+            "content": "Add No Event available Image",
+        },
+        {
+            "type": "image_picker",
+            "id": "venue_not_available",
+            "label": "Add Image"
+        },
+        {
+            "type": "header",
+            "content": "Specing Top"
+        },
+        {
+            "type": "range",
+            "id": "padding_top_desk",
+            "label": "Desktop",
+            "min": 0,
+            "step": 5,
+            "default": 50,
+            "max": 100,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding_top_teplop",
+            "label": "Laptop",
+            "min": 0,
+            "step": 5,
+            "default": 50,
+            "max": 100,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding_top_tab",
+            "label": "Tablet",
+            "min": 0,
+            "step": 5,
+            "default": 50,
+            "max": 100,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding_top_mbl",
+            "label": "Mobile",
+            "min": 0,
+            "step": 5,
+            "default": 50,
+            "max": 100,
+            "unit": "px"
+        },
+        {
+            "type": "header",
+            "content": "Specing Bottom"
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom_desk",
+            "label": "Desktop",
+            "min": 0,
+            "step": 5,
+            "default": 50,
+            "max": 100,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom_teplop",
+            "label": "Laptop",
+            "min": 0,
+            "step": 5,
+            "default": 50,
+            "max": 100,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom_tab",
+            "label": "Tablet",
+            "min": 0,
+            "step": 5,
+            "default": 50,
+            "max": 100,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom_mbl",
+            "label": "Mobile",
+            "min": 0,
+            "step": 5,
+            "default": 50,
+            "max": 100,
+            "unit": "px"
+        },
+        {
+            "type": "header",
+            "content": "View Button"
+        },
+        {
+            "type": "text",
+            "id": "view_all_text",
+            "label": "View All Text"
+        },
+        {
+            "type": "textarea",
+            "id": "view_all_icon",
+            "label": "View All Icon"
+        },
+        {
+            "type": "color",
+            "id": "view_all_text_color",
+            "label": "View All Text Color",
+            "default": "#000000"
+        },
+        {
+            "type": "range",
+            "id": "view_all_text_size",
+            "label": "View All Text Font Size",
+            "min": 10,
+            "max": 30,
+            "default": 16,
+            "unit": "px"
+        },
+       {
+            "type": "select",
+            "id": "view_all_text_weight",
+            "label": "View All Text Font Weight",
+            "options": [
+                { "value": "300", "label": "Light" },
+                { "value": "400", "label": "Normal" },
+                { "value": "500", "label": "Medium" },
+                { "value": "600", "label": "Semi-Bold" },
+                { "value": "700", "label": "Bold" }
+            ],
+            "default": "400"
+        }
+    ],
+    "presets": [
+        {
+            "name": "As Venue Collection"
+        }
+    ]
+}
+{% endschema %}

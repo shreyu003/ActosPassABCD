@@ -1,0 +1,68 @@
+<section>
+    <div class="container-1170">
+        <div class="w-100">
+            <p class="subheading"> {{ section.settings.subheading-txt }} </p>
+            <h3 class="main_heading"> {{ section.settings.heading-txt }} 
+                <span class="star-icon">
+                    {{ section.settings.right-side-icon }}
+                </span>
+            </h3>
+        </div>
+        <div class="w-100 social_media_block">
+            {% for block in section.blocks %}
+                <a href="{{ block.settings.social_media_url }}">
+                    <div class="social_media_inner">
+                        {{ block.settings.social_Media-icon }}
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+{% schema %}
+{
+    "name": "As Social Media",
+    "settings": [
+        {
+            "type": "textarea",
+            "id": "subheading-txt",
+            "label": "Add your Subheading"
+        },
+        {
+            "type": "text",
+            "id": "heading-txt",
+            "label": "Add your Heading"
+        },
+        {
+            "type": "html",
+            "id": "right-side-icon",
+            "label": "Add Svg Icon"
+        }
+    ],
+    "blocks": [
+        {
+            "name": "Social Media Icon",
+            "type": "text",
+            "settings": [
+                {
+                    "type": "url",
+                    "id": "social_media_url",
+                    "label": "Add Social Media URL"
+                },
+                {
+                    "type": "html",
+                    "id": "social_Media-icon",
+                    "label": "Add Your Social Media Icon"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "As Social Media"
+        }
+    ]
+}
+{% endschema %}

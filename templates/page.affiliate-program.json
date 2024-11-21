@@ -1,0 +1,710 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "as_banner_slider_3bJc7j": {
+      "type": "asBannerSlider",
+      "blocks": {
+        "image_picker_jK8a4D": {
+          "type": "image_picker",
+          "settings": {
+            "slider_banner_image": "shopify://shop_images/affiliate_slider_image1.png",
+            "slider_heading": "The Best TicketingAffiliate Program of The Navsari",
+            "slider_subtext": "Join and get access to the region’s widest collection of\nevents in sports, music, business, nightlife, as well as\nattractions, theme parks and excursions.",
+            "button-txt1": "get started",
+            "button-url1": "#",
+            "button-txt2": "chat with us",
+            "button-url2": "#"
+          }
+        },
+        "image_picker_7frYhy": {
+          "type": "image_picker",
+          "settings": {
+            "slider_banner_image": "shopify://shop_images/p11.webp",
+            "slider_heading": "The Best TicketingAffiliate Program of The Navsari",
+            "slider_subtext": "Join and get access to the region’s widest collection of\nevents in sports, music, business, nightlife, as well as\nattractions, theme parks and excursions.",
+            "button-txt1": "get started",
+            "button-url1": "#",
+            "button-txt2": "chat with us",
+            "button-url2": "#"
+          }
+        },
+        "image_picker_ViMQRB": {
+          "type": "image_picker",
+          "settings": {
+            "slider_banner_image": "shopify://shop_images/p10.webp",
+            "slider_heading": "The Best TicketingAffiliate Program of The Navsari",
+            "slider_subtext": "Join and get access to the region’s widest collection of\nevents in sports, music, business, nightlife, as well as\nattractions, theme parks and excursions.",
+            "button-txt1": "get started",
+            "button-url1": "#",
+            "button-txt2": "chat with us",
+            "button-url2": "#"
+          }
+        }
+      },
+      "block_order": [
+        "image_picker_jK8a4D",
+        "image_picker_7frYhy",
+        "image_picker_ViMQRB"
+      ],
+      "settings": {
+      }
+    },
+    "as_brand_slider_yr4iyn": {
+      "type": "asBrandSlider",
+      "blocks": {
+        "image_picker_eCUHR9": {
+          "type": "image_picker",
+          "settings": {
+            "brand_image": "shopify://shop_images/Avatar_9b27923a-b687-4a0a-8c14-96ca1446a653.png"
+          }
+        },
+        "image_picker_UJXY3H": {
+          "type": "image_picker",
+          "settings": {
+            "brand_image": "shopify://shop_images/Avatar_1_e7097d2d-d0ac-4f40-8b18-4745b015efc3.png"
+          }
+        },
+        "image_picker_WV6k7Q": {
+          "type": "image_picker",
+          "settings": {
+            "brand_image": "shopify://shop_images/Avatar_3.png"
+          }
+        },
+        "image_picker_bEFakp": {
+          "type": "image_picker",
+          "settings": {
+            "brand_image": "shopify://shop_images/Avatar_4.png"
+          }
+        },
+        "image_picker_XrYe7q": {
+          "type": "image_picker",
+          "settings": {
+            "brand_image": "shopify://shop_images/Avatar_2_b7df453c-2699-41d3-9f8b-454456cb5fad.png"
+          }
+        },
+        "image_picker_DY66Yn": {
+          "type": "image_picker",
+          "settings": {
+            "brand_image": "shopify://shop_images/Avatar_5.png"
+          }
+        },
+        "image_picker_9maKjq": {
+          "type": "image_picker",
+          "settings": {
+            "brand_image": "shopify://shop_images/Avatar_9b27923a-b687-4a0a-8c14-96ca1446a653.png"
+          }
+        },
+        "image_picker_bQkcDe": {
+          "type": "image_picker",
+          "settings": {
+            "brand_image": "shopify://shop_images/Avatar_1_e7097d2d-d0ac-4f40-8b18-4745b015efc3.png"
+          }
+        },
+        "image_picker_Xj3QYt": {
+          "type": "image_picker",
+          "settings": {
+            "brand_image": "shopify://shop_images/Avatar_3.png"
+          }
+        },
+        "image_picker_3jWnmD": {
+          "type": "image_picker",
+          "settings": {
+            "brand_image": "shopify://shop_images/Avatar_4.png"
+          }
+        },
+        "image_picker_tCaybE": {
+          "type": "image_picker",
+          "settings": {
+            "brand_image": "shopify://shop_images/Avatar_2_b7df453c-2699-41d3-9f8b-454456cb5fad.png"
+          }
+        },
+        "image_picker_3UdcNL": {
+          "type": "image_picker",
+          "settings": {
+            "brand_image": "shopify://shop_images/Avatar_5.png"
+          }
+        },
+        "image_picker_Hgwmdr": {
+          "type": "image_picker",
+          "settings": {
+            "brand_image": "shopify://shop_images/Avatar_9b27923a-b687-4a0a-8c14-96ca1446a653.png"
+          }
+        },
+        "image_picker_MBPELk": {
+          "type": "image_picker",
+          "settings": {
+            "brand_image": "shopify://shop_images/Avatar_1_e7097d2d-d0ac-4f40-8b18-4745b015efc3.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_picker_eCUHR9",
+        "image_picker_UJXY3H",
+        "image_picker_WV6k7Q",
+        "image_picker_bEFakp",
+        "image_picker_XrYe7q",
+        "image_picker_DY66Yn",
+        "image_picker_9maKjq",
+        "image_picker_bQkcDe",
+        "image_picker_Xj3QYt",
+        "image_picker_3jWnmD",
+        "image_picker_tCaybE",
+        "image_picker_3UdcNL",
+        "image_picker_Hgwmdr",
+        "image_picker_MBPELk"
+      ],
+      "settings": {
+      }
+    },
+    "custom_service_block_F9rTp8": {
+      "type": "custom-service-block",
+      "blocks": {
+        "text_d8V48d": {
+          "type": "Text",
+          "settings": {
+            "bg_color_block": "#ffffff",
+            "border_block": "#ffffff",
+            "icon_type": "text",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"75\" height=\"75\" viewbox=\"0 0 75 75\" fill=\"none\">\n<circle cx=\"37.1467\" cy=\"37.1467\" r=\"36.6823\" fill=\"white\" stroke=\"#CDCDCD\" stroke-width=\"0.928666\"></circle>\n<path d=\"M40.7548 35.2762C38.3908 37.7245 36.0268 40.1519 33.707 42.6002C33.3093 43.0187 33.0883 43.0815 32.6244 42.6629C32.1825 42.2654 32.2709 42.077 32.6244 41.7004C34.7233 39.566 36.8001 37.3897 38.8769 35.2344C39.8269 34.2718 39.8269 34.2718 40.7548 35.2762Z\" fill=\"#942FFA\"></path>\n<path d=\"M47.4834 35.8516C46.4334 34.4834 45.3834 33.1471 44.3334 31.7789C43.5061 30.6971 42.6789 29.6153 41.8516 28.5335C42.5516 28.2153 43.2198 27.9289 43.8561 27.6426C44.3334 27.4199 44.5879 27.0699 44.397 26.529C44.2379 26.1153 43.7607 26.0199 43.2198 26.2744C42.8061 26.4653 42.4243 26.6562 42.0107 26.8471C42.5198 25.829 43.1561 24.9062 43.7607 24.0153C44.2061 23.379 44.047 22.8699 43.3152 22.6472C41.6289 22.2017 40.3562 21.2472 39.1789 20.0699C37.7153 18.6381 36.538 18.6381 35.0426 20.1017C33.8971 21.2154 32.6562 22.1381 31.129 22.6153C30.1744 22.9017 30.079 23.3472 30.6199 24.1426C31.1926 25.0017 31.7653 25.8608 32.3699 26.7199C32.338 26.7517 32.3062 26.8153 32.2744 26.8471C31.8926 26.6562 31.479 26.4971 31.0971 26.3062C30.5244 26.0517 30.079 26.1153 29.8881 26.529C29.6653 26.9744 29.8562 27.388 30.4608 27.6744C31.0971 27.9608 31.7335 28.2471 32.4335 28.5335C32.2744 28.7562 32.1471 28.9471 32.0199 29.1062C30.1744 31.3971 28.3926 33.6562 26.6426 35.9789C24.829 38.4289 24.479 41.1334 25.7835 43.9015C27.0881 46.7015 29.379 48.2288 32.4653 48.3242C35.5517 48.4197 38.638 48.356 41.7243 48.356C42.0743 48.356 42.3925 48.3242 42.7107 48.2924C48.597 47.2106 51.1424 40.5607 47.4834 35.8516ZM32.1471 23.7926C33.8335 23.2835 35.0426 22.1381 36.2198 20.9926C36.8562 20.3881 37.3335 20.3881 37.9698 20.9926C39.1471 22.1063 40.3243 23.2517 42.0425 23.7926C41.2152 25.0017 40.4516 26.1471 39.6562 27.2926C39.5607 27.4199 39.3698 27.5153 39.2107 27.5789C37.8107 27.8653 36.3789 27.8653 34.9789 27.5789C34.8198 27.5471 34.6289 27.4517 34.5335 27.2926C33.738 26.1471 32.9744 25.0017 32.1471 23.7926ZM47.0061 43.4879C45.8607 45.7788 43.8879 46.8606 41.3425 46.8924C39.9107 46.9242 38.4789 46.8924 37.0789 46.8924V46.8288C35.4244 46.8288 33.7698 46.9242 32.1153 46.797C29.7608 46.6061 28.0426 45.3015 27.0881 43.1697C26.1335 41.0061 26.3563 38.8743 27.7881 36.997C29.729 34.388 31.7653 31.8425 33.738 29.2653C33.9608 28.9789 34.1835 28.9153 34.5335 28.9789C36.3153 29.3289 38.0653 29.2971 39.8471 28.9789C40.0698 28.9471 40.388 29.0426 40.5152 29.2017C42.5516 31.7789 44.5879 34.3562 46.5288 36.997C47.9606 39.0652 48.1197 41.2607 47.0061 43.4879Z\" fill=\"black\"></path>\n<path d=\"M34.21 34.5188C33.2094 34.4822 32.3854 35.2521 32.3265 36.2236C32.2873 37.2318 33.1113 38.1116 34.1119 38.13C35.0929 38.1483 35.9169 37.3417 35.9365 36.3702C35.9758 35.3804 35.1714 34.5555 34.21 34.5188ZM34.1708 36.9018C33.7588 36.9385 33.6018 36.6452 33.5822 36.3336C33.5626 36.0219 33.7195 35.7103 34.1119 35.692C34.5043 35.6737 34.6416 35.9486 34.7005 36.1686C34.6809 36.6085 34.5828 36.8835 34.1708 36.9018Z\" fill=\"#942FFA\"></path>\n<path d=\"M38.9578 39.3345C37.9726 39.3345 37.1612 40.1352 37.1419 41.122C37.1226 42.1462 37.9726 42.9655 38.9964 42.9469C39.9816 42.9282 40.7543 42.1089 40.7543 41.122C40.7543 40.1538 39.9236 39.3345 38.9578 39.3345ZM38.9191 41.7551C38.5521 41.7179 38.3976 41.4386 38.4362 41.0662C38.4555 40.7496 38.6101 40.5262 38.9578 40.5076C39.3828 40.4889 39.46 40.8241 39.4987 41.122C39.4407 41.4758 39.3248 41.811 38.9191 41.7551Z\" fill=\"#942FFA\"></path>\n</svg>",
+            "width_icon": 64,
+            "height_icon": 64,
+            "mg_bottom_icon": 45,
+            "color_icon": "#3c3c3c",
+            "text": "Up to 5% commission",
+            "type_tab_font": "font_1",
+            "fontsize_title_block": 18,
+            "fontsize_title_block_mb": 18,
+            "title_block_font_weight": "700",
+            "mg_bottom_title": 15,
+            "mg_bottom_title_mb": 0,
+            "color_block": "#232323",
+            "description": "Earn up to 10% commission for\nevery customer purchase you\nreferred.",
+            "fontsize_des_block": 16,
+            "fontsize_des_block_mb": 14,
+            "lineheight_des_block": 22,
+            "mg_bottom_des": 0,
+            "color_des_block": "#3c3c3c",
+            "button": "",
+            "link": "",
+            "button_style": "style1",
+            "fontsize_button": 14,
+            "button_width": 235,
+            "fontweight_button": "500",
+            "enable_underline_button": false,
+            "color_button": "#ba7a2d",
+            "button_border": "",
+            "button_background": "",
+            "button_background_gradient": "",
+            "button_color_hover": "#ba7a2d",
+            "button_border_hover": "",
+            "button_background_hover": "",
+            "button_background_gradient_hover": ""
+          }
+        },
+        "text_zKpEGg": {
+          "type": "Text",
+          "settings": {
+            "bg_color_block": "#ffffff",
+            "border_block": "#ffffff",
+            "icon_type": "text",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"75\" height=\"75\" viewbox=\"0 0 75 75\" fill=\"none\">\n<circle cx=\"37.1467\" cy=\"37.1467\" r=\"36.6823\" fill=\"white\" stroke=\"#CDCDCD\" stroke-width=\"0.928666\"></circle>\n<path d=\"M48.4888 32.0559C47.2899 30.9569 46.0577 29.8579 44.8254 28.7922C44.2593 28.3259 44.3259 28.0928 44.8587 27.6598C46.0577 26.6607 47.2233 25.595 48.3556 24.5293C48.6887 24.2296 49.1882 23.9298 48.9551 23.3304C48.722 22.7309 48.1891 22.8308 47.6896 22.8308H36.3996C34.5013 22.8308 34.5013 22.8308 34.3681 20.9658C34.3681 20.8992 34.3681 20.8326 34.3681 20.766C34.3015 20.2664 34.0351 20 33.5355 20C33.1026 20 32.8694 20.333 32.8028 20.766C32.7695 21.0657 32.7695 21.3987 32.7695 21.6985V38.0173C32.7695 43.4791 32.7695 41.9471 32.7695 47.4422C32.7695 47.7752 32.7695 48.1416 32.8361 48.4746C32.9027 48.8742 33.2025 49.0741 33.6021 49.0741C33.9685 49.0741 34.2682 48.8409 34.3348 48.4413C34.4014 48.1416 34.3681 47.8085 34.3681 47.5088C34.3681 40.8481 34.3681 41.1811 34.3681 34.5537C34.3681 33.821 34.5679 33.6212 35.3006 33.6212C39.4636 33.6545 43.6598 33.6545 47.8228 33.6545C48.289 33.6545 48.7553 33.6545 48.9551 33.1216C49.1882 32.6221 48.7886 32.3556 48.4888 32.0559ZM40.7291 32.1225C38.8974 32.1225 37.0324 32.0892 35.2007 32.1225C34.6012 32.1225 34.3681 32.0226 34.3681 31.3565C34.4347 29.2584 34.3681 27.1936 34.4014 25.0954C34.4014 24.7957 34.2349 24.3961 34.8344 24.3961C38.5311 24.3961 42.2611 24.3961 46.2242 24.3961C44.9587 25.5284 43.9262 26.4276 42.8938 27.3601C42.0945 28.0595 42.0945 28.4258 42.8605 29.1252C43.9262 30.0577 44.9587 31.0235 46.2242 32.1225H40.7291Z\" fill=\"#030303\"></path>\n<path d=\"M33.6682 52.4046C35.3 52.4046 36.832 52.1048 38.2308 51.2056C40.0625 50.0067 40.0958 48.2749 38.2974 47.0094C37.7978 46.643 37.2316 46.4099 36.6322 46.1768C36.1992 46.0103 35.7996 45.7105 35.9994 45.1777C36.1992 44.6115 36.6322 44.5116 37.165 44.7447C39.0633 45.4774 40.7951 46.4432 41.0949 48.7078C41.328 50.4396 40.3622 51.6053 39.03 52.5378C36.0327 54.5693 30.9706 54.5027 27.9732 52.4046C25.3423 50.5395 25.3423 47.6421 27.9732 45.7771C28.5394 45.3775 29.1722 45.0778 29.8049 44.8113C30.3711 44.5782 30.9373 44.445 31.2037 45.1444C31.4368 45.7771 30.9373 46.0769 30.4044 46.2434C29.8049 46.4432 29.2721 46.7429 28.7725 47.1093C27.174 48.3415 27.174 49.8735 28.8058 51.0391C30.2712 52.1048 31.9364 52.4046 33.6682 52.4046Z\" fill=\"#942FFA\"></path>\n</svg>",
+            "width_icon": 64,
+            "height_icon": 64,
+            "mg_bottom_icon": 45,
+            "color_icon": "#3c3c3c",
+            "text": "All in one place!",
+            "type_tab_font": "font_1",
+            "fontsize_title_block": 18,
+            "fontsize_title_block_mb": 18,
+            "title_block_font_weight": "700",
+            "mg_bottom_title": 15,
+            "mg_bottom_title_mb": 0,
+            "color_block": "#232323",
+            "description": "The biggest inventory of\nevents and attractions. Over\n1000 experiences annually.",
+            "fontsize_des_block": 16,
+            "fontsize_des_block_mb": 14,
+            "lineheight_des_block": 22,
+            "mg_bottom_des": 0,
+            "color_des_block": "#3c3c3c",
+            "button": "",
+            "link": "",
+            "button_style": "style1",
+            "fontsize_button": 14,
+            "button_width": 235,
+            "fontweight_button": "500",
+            "enable_underline_button": false,
+            "color_button": "#ba7a2d",
+            "button_border": "",
+            "button_background": "",
+            "button_background_gradient": "",
+            "button_color_hover": "#ba7a2d",
+            "button_border_hover": "",
+            "button_background_hover": "",
+            "button_background_gradient_hover": ""
+          }
+        },
+        "text_tPY3fY": {
+          "type": "Text",
+          "settings": {
+            "bg_color_block": "#ffffff",
+            "border_block": "#ffffff",
+            "icon_type": "text",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"75\" height=\"75\" viewbox=\"0 0 75 75\" fill=\"none\">\n<circle cx=\"37.1467\" cy=\"37.1467\" r=\"36.6823\" fill=\"white\" stroke=\"#CDCDCD\" stroke-width=\"0.928666\"></circle>\n<path d=\"M52.8888 40.3274C52.834 39.7521 52.6422 39.1768 52.3957 38.7111C51.5739 37.3414 51.5739 35.8073 52.3957 34.6842C52.8066 34.1363 52.971 33.561 52.9436 32.8214C52.9162 32.4926 52.9436 32.1913 52.9436 31.8626C52.9436 31.6982 52.9436 31.5338 52.9436 31.3695C52.8888 29.2327 51.6561 28 49.5467 28C46.5881 28 43.657 28 40.6984 28H30.7543C28.8641 28 27.0013 28 25.1385 28C23.8784 28 22.947 28.5753 22.4265 29.671C21.8512 30.8764 21.9882 32.1365 22.0978 33.5062C22.1252 33.698 22.1252 33.8897 22.1526 34.0541C22.1526 34.1089 22.2347 34.2185 22.3169 34.3007C22.3443 34.328 22.3717 34.3828 22.3991 34.4376C23.4401 35.9169 23.4675 37.4236 22.4265 38.9029C22.2347 39.2042 22.0978 39.5603 22.0704 39.8617C22.0156 40.6835 22.043 41.5053 22.0704 42.245C22.1526 44.0256 23.4127 45.3405 25.0563 45.3405C32.7541 45.3405 40.8628 45.3405 49.9028 45.3405C51.4095 45.3405 52.6422 44.2721 52.834 42.7654C52.9436 41.9162 52.9436 41.0944 52.8888 40.3274ZM51.1904 42.2997C51.1904 42.4093 51.163 42.5189 51.163 42.6285C51.1082 43.0668 50.5055 43.6147 50.0672 43.6147C48.7249 43.6694 47.3278 43.6694 45.9855 43.6421H41.6024C41.4654 43.6421 41.3285 43.6694 41.2189 43.6694C38.1781 43.6694 35.1648 43.6694 32.124 43.6694C29.9599 43.6694 27.7684 43.6694 25.6042 43.6694C24.2345 43.6694 23.7688 43.2037 23.714 41.8066C23.6866 40.6287 23.8784 39.6973 24.3441 38.8481C25.1659 37.314 25.0837 35.6156 24.1249 33.9993C23.5223 32.9857 23.6592 31.9722 23.7962 30.986C23.8236 30.8764 23.8236 30.7668 23.851 30.6572C23.8784 30.0272 24.4263 29.6436 25.2481 29.6436C26.3439 29.6436 27.467 29.6436 28.5628 29.6436H40.671H45.9855V29.671C47.3278 29.671 48.6975 29.671 50.0398 29.6984C50.7247 29.7258 51.2451 30.2737 51.2451 31.0407C51.2451 31.1777 51.2451 31.3421 51.2451 31.4791C51.2725 32.4105 51.2725 33.3693 50.7247 34.328C49.8207 35.8895 49.848 37.6153 50.8342 39.2864C51.4095 40.3 51.2999 41.3136 51.1904 42.2997Z\" fill=\"#010201\"></path>\n<path d=\"M44.5623 43.6693H44.3158L44.261 43.4502C44.2062 43.2036 44.1788 42.9297 44.1788 42.6557C44.1514 41.8613 44.0966 41.5326 43.357 41.5326C42.5899 41.5326 42.5625 41.9161 42.5352 42.7379C42.5352 42.9571 42.5352 43.2036 42.5078 43.4228L42.4804 43.6145L42.2338 43.6419C42.1516 43.6419 42.0694 43.6419 41.9873 43.6693C41.9599 43.6693 41.9325 43.6693 41.8777 43.6693H45.9594C45.4937 43.6693 45.028 43.6693 44.5623 43.6693ZM40.9463 29.6709H42.453L42.5078 29.9174C42.5352 30.164 42.5351 30.4105 42.5625 30.6571C42.5625 31.4789 42.6173 31.835 43.357 31.8624H43.3844C44.1514 31.8624 44.1788 31.5063 44.2062 30.6845C44.2062 30.4379 44.2062 30.1914 44.261 29.9722L44.3158 29.7257H44.5623C45.1102 29.7257 45.6581 29.7257 46.206 29.7257H46.2881V29.6709H40.9463Z\" fill=\"#942FFA\"></path>\n<path d=\"M44.1778 37.2869C44.1778 37.6978 44.1778 38.1087 44.1778 38.5196C44.1504 39.0127 43.849 39.3688 43.4107 39.3962C43.1916 39.3962 42.9998 39.3414 42.8628 39.1771C42.6985 39.0127 42.5889 38.7661 42.5889 38.5196C42.5615 37.3143 42.5615 36.0815 42.5889 34.8214C42.5889 34.3283 42.9176 33.9722 43.3559 33.9722H43.3833C43.8216 33.9722 44.1504 34.3283 44.1778 34.8488C44.2052 35.2871 44.1778 35.7254 44.1778 36.1637C44.1778 36.3555 44.1778 36.5472 44.1778 36.739C44.1778 36.9033 44.1778 37.0951 44.1778 37.2869Z\" fill=\"#942FFA\"></path>\n</svg>",
+            "width_icon": 64,
+            "height_icon": 64,
+            "mg_bottom_icon": 45,
+            "color_icon": "#3c3c3c",
+            "text": "Special offers",
+            "type_tab_font": "font_1",
+            "fontsize_title_block": 18,
+            "fontsize_title_block_mb": 18,
+            "title_block_font_weight": "700",
+            "mg_bottom_title": 15,
+            "mg_bottom_title_mb": 0,
+            "color_block": "#232323",
+            "description": "All the tools to sell more are\nready to use. Promo codes &\ndiscounts up to 25% for\nyour users.",
+            "fontsize_des_block": 16,
+            "fontsize_des_block_mb": 14,
+            "lineheight_des_block": 22,
+            "mg_bottom_des": 0,
+            "color_des_block": "#3c3c3c",
+            "button": "",
+            "link": "",
+            "button_style": "style1",
+            "fontsize_button": 14,
+            "button_width": 235,
+            "fontweight_button": "500",
+            "enable_underline_button": false,
+            "color_button": "#ba7a2d",
+            "button_border": "",
+            "button_background": "",
+            "button_background_gradient": "",
+            "button_color_hover": "#ba7a2d",
+            "button_border_hover": "",
+            "button_background_hover": "",
+            "button_background_gradient_hover": ""
+          }
+        },
+        "text_4M3bHR": {
+          "type": "Text",
+          "settings": {
+            "bg_color_block": "#ffffff",
+            "border_block": "#ffffff",
+            "icon_type": "text",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"75\" height=\"75\" viewbox=\"0 0 75 75\" fill=\"none\">\n<circle cx=\"37.1467\" cy=\"37.1467\" r=\"36.6823\" fill=\"white\" stroke=\"#CDCDCD\" stroke-width=\"0.928666\"></circle>\n<path d=\"M48.7341 44.7555C48.7341 44.0187 48.7341 43.282 48.7341 42.5803C48.7341 40.8261 48.1026 39.2474 47.0501 38.0195C45.9976 36.7915 44.5241 35.9495 42.7699 35.6689C42.5243 35.6338 42.4191 35.6689 42.2086 35.8794C40.8403 37.423 39.1212 38.265 37.332 38.265C35.5778 38.265 33.8587 37.423 32.5255 35.8794L32.4554 35.8092C32.3501 35.6689 32.315 35.6338 32.1747 35.6338C32.1396 35.6338 32.1396 35.6338 32.1045 35.6338C28.7716 35.9846 26.0351 39.0018 26 42.2996C26 43.1416 26 43.9836 26 44.7906C26 45.8781 26 47.0359 26 48.1235C26 48.4042 26.0351 48.4743 26.0702 48.5094C26.1053 48.5445 26.2456 48.5796 26.4561 48.5796C29.1575 48.5445 31.9291 48.5796 34.5954 48.5796H37.2969H39.893C42.6646 48.5796 45.5766 48.5796 48.3832 48.5796C48.5937 48.5796 48.699 48.5445 48.699 48.5445C48.699 48.5445 48.7692 48.4743 48.7341 48.2287C48.7341 47.071 48.7341 45.8782 48.7341 44.7555ZM46.8045 46.65C46.6291 46.8254 46.3484 46.8605 46.1028 46.8605C44.7346 46.8605 43.3663 46.8605 41.998 46.8605C41.156 46.8605 40.3491 46.8605 39.5422 46.8605H35.0866C32.9816 46.8605 30.8064 46.8605 28.6663 46.8605H28.6313C28.3857 46.8605 28.105 46.8254 27.9296 46.65C27.7542 46.4746 27.7542 46.1939 27.7542 45.9483C27.7893 45.387 27.7893 44.7906 27.7542 44.2292C27.7191 43.282 27.684 42.2646 27.9296 41.3173C28.3155 39.7035 29.2978 38.5457 30.9117 37.809C31.3678 37.5985 31.7186 37.6686 32.1045 38.0195C35.262 40.7209 39.3668 40.756 42.5594 38.0896C43.0506 37.7037 43.4716 37.6335 43.9978 37.9142C45.9274 38.9316 46.9097 40.4753 46.9799 42.5452C47.015 43.1066 46.9799 43.703 46.9799 44.2643C46.9799 44.8607 46.9799 45.4571 46.9799 46.0185C46.9799 46.1939 46.9799 46.4746 46.8045 46.65Z\" fill=\"#010201\"></path>\n<path d=\"M37.2573 25C34.2288 25 31.7432 27.4571 31.7432 30.4857C31.7432 33.4857 34.2288 36 37.2288 36C40.2287 36 42.7429 33.4857 42.7429 30.4857C42.7715 27.4857 40.2858 25 37.2573 25ZM37.2002 34.2857C35.1145 34.2857 33.4003 32.6 33.4003 30.4857C33.4003 28.4 35.1145 26.6857 37.2002 26.6857C39.2859 26.6857 41.0001 28.3714 41.0001 30.4857C41.0001 32.6 39.2859 34.2857 37.2002 34.2857Z\" fill=\"#942FFA\"></path>\n</svg>",
+            "width_icon": 64,
+            "height_icon": 64,
+            "mg_bottom_icon": 45,
+            "color_icon": "#3c3c3c",
+            "text": "Personal manager",
+            "type_tab_font": "font_1",
+            "fontsize_title_block": 18,
+            "fontsize_title_block_mb": 18,
+            "title_block_font_weight": "700",
+            "mg_bottom_title": 15,
+            "mg_bottom_title_mb": 0,
+            "color_block": "#232323",
+            "description": "A dedicated success\nmanager will assist you to\nsolve any issue promptly.",
+            "fontsize_des_block": 16,
+            "fontsize_des_block_mb": 14,
+            "lineheight_des_block": 22,
+            "mg_bottom_des": 0,
+            "color_des_block": "#3c3c3c",
+            "button": "",
+            "link": "",
+            "button_style": "style1",
+            "fontsize_button": 14,
+            "button_width": 235,
+            "fontweight_button": "500",
+            "enable_underline_button": false,
+            "color_button": "#ba7a2d",
+            "button_border": "",
+            "button_background": "",
+            "button_background_gradient": "",
+            "button_color_hover": "#ba7a2d",
+            "button_border_hover": "",
+            "button_background_hover": "",
+            "button_background_gradient_hover": ""
+          }
+        },
+        "text_BVPXHc": {
+          "type": "Text",
+          "settings": {
+            "bg_color_block": "#ffffff",
+            "border_block": "#ffffff",
+            "icon_type": "text",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"75\" height=\"75\" viewbox=\"0 0 75 75\" fill=\"none\">\n<circle cx=\"37.1467\" cy=\"37.1467\" r=\"36.6823\" fill=\"white\" stroke=\"#CDCDCD\" stroke-width=\"0.928666\"></circle>\n<path d=\"M30.8911 25.0374C33.1239 25.0374 34.9479 25.7606 36.4888 27.1758C36.8032 27.4588 36.929 27.4274 37.2435 27.1758C39.665 25.0374 42.4638 24.4399 45.4827 25.5405C48.5331 26.6412 50.2313 28.9368 50.7344 32.113C50.7973 32.5533 50.7659 32.9935 50.7659 33.4338C50.7344 33.9999 50.4199 34.3143 49.9168 34.3143C49.4136 34.3143 49.0992 33.9684 49.1306 33.4024C49.162 31.5155 48.5645 29.9117 47.2438 28.5595C44.8852 26.1695 40.9228 26.1066 38.47 28.3708C38.2813 28.528 38.124 28.7167 37.9354 28.9054C37.2435 29.5972 36.5517 29.5972 35.8598 28.8739C34.7906 27.7418 33.5013 27.05 31.9604 26.767C28.7527 26.2324 25.3564 28.6224 24.8218 31.8614C24.4444 34.1571 25.0734 36.0754 26.7086 37.7106C29.6018 40.6038 32.4635 43.4655 35.3567 46.3587C36.3944 47.3964 37.4951 47.3964 38.5328 46.3587C38.6901 46.2014 38.8473 46.0127 39.036 45.8869C39.4134 45.5725 39.8222 45.6039 40.1681 45.9498C40.4826 46.2643 40.514 46.6731 40.231 47.0505C38.4385 49.3776 35.8598 49.3147 34.2246 47.6794C31.3 44.7234 28.3439 41.8302 25.4508 38.8742C23.1237 36.5156 22.4318 33.6854 23.4696 30.5406C24.5073 27.4588 26.7715 25.6978 29.9792 25.1317C30.2622 25.0374 30.6396 25.0688 30.8911 25.0374Z\" fill=\"#010101\"></path>\n<path d=\"M46.8352 41.296V41.3274C46.8352 41.5161 46.7408 41.7048 46.5836 41.862C46.2691 42.1765 45.8918 42.1451 45.4515 41.7677C45.4201 41.7677 45.4201 41.7362 45.4201 41.7362C45.3886 41.7048 45.3572 41.6733 45.2943 41.6419C43.9735 40.8243 44.0364 39.5978 44.1307 38.3399C44.1307 38.0883 44.1622 37.8682 44.1622 37.6166C44.1622 37.2393 44.5395 37.1135 44.854 37.082C45.2943 37.1764 45.5144 37.3651 45.5458 37.7424C45.5773 37.9311 45.5773 38.1512 45.5458 38.3399C45.4201 39.472 45.7031 40.2268 46.4893 40.7928C46.7094 40.9186 46.8037 41.1073 46.8352 41.296Z\" fill=\"#010101\"></path>\n<path d=\"M48.9418 36.0124C47.8412 34.9432 46.3946 34.3457 44.8537 34.3457C43.2813 34.3457 41.8347 34.9432 40.7341 36.0439C39.6334 37.1445 39.0674 38.5911 39.0674 40.132C39.0674 43.3711 41.6146 45.9183 44.8537 45.9183C48.0928 45.9183 50.64 43.3711 50.64 40.132C50.64 38.5596 50.0425 37.1131 48.9418 36.0124ZM47.9355 43.2139C47.1179 44.0315 46.0172 44.4717 44.8537 44.4717H44.8222C42.4637 44.4717 40.514 42.522 40.514 40.132C40.514 38.937 40.9542 37.8678 41.7719 37.0502C42.5895 36.2325 43.6587 35.7923 44.8537 35.7923C46.0172 35.7923 47.1179 36.2325 47.9355 37.0816C48.7532 37.8993 49.1934 38.9999 49.1934 40.1635C49.1934 41.2956 48.7532 42.3962 47.9355 43.2139Z\" fill=\"#942FFA\"></path>\n<path d=\"M46.8352 41.296V41.3274C46.8352 41.5161 46.7408 41.7048 46.5836 41.862C46.2691 42.1765 45.8918 42.1451 45.4515 41.7677C45.4201 41.7677 45.4201 41.7362 45.4201 41.7362C45.3886 41.7048 45.3572 41.6733 45.2943 41.6419C43.9735 40.8243 44.0364 39.5978 44.1307 38.3399C44.1307 38.0883 44.1622 37.8682 44.1622 37.6166C44.1622 37.2393 44.5395 37.1135 44.854 37.082C45.2943 37.1764 45.5144 37.3651 45.5458 37.7424C45.5773 37.9311 45.5773 38.1512 45.5458 38.3399C45.4201 39.472 45.7031 40.2268 46.4893 40.7928C46.7094 40.9186 46.8037 41.1073 46.8352 41.296Z\" fill=\"#F4F4F6\"></path>\n<path d=\"M46.8352 41.296V41.3274C46.8352 41.5161 46.7408 41.7048 46.5836 41.862C46.2691 42.1765 45.8918 42.1451 45.4515 41.7677C45.4201 41.7677 45.4201 41.7362 45.4201 41.7362C45.3886 41.7048 45.3572 41.6733 45.2943 41.6419C43.9735 40.8243 44.0364 39.5978 44.1307 38.3399C44.1307 38.0883 44.1622 37.8682 44.1622 37.6166C44.1622 37.2393 44.5395 37.1135 44.854 37.082C45.2943 37.1764 45.5144 37.3651 45.5458 37.7424C45.5773 37.9311 45.5773 38.1512 45.5458 38.3399C45.4201 39.472 45.7031 40.2268 46.4893 40.7928C46.7094 40.9186 46.8037 41.1073 46.8352 41.296Z\" fill=\"#942FFA\"></path>\n</svg>",
+            "width_icon": 64,
+            "height_icon": 64,
+            "mg_bottom_icon": 45,
+            "color_icon": "#3c3c3c",
+            "text": "60 days lifetime cookies",
+            "type_tab_font": "font_1",
+            "fontsize_title_block": 18,
+            "fontsize_title_block_mb": 18,
+            "title_block_font_weight": "700",
+            "mg_bottom_title": 15,
+            "mg_bottom_title_mb": 0,
+            "color_block": "#232323",
+            "description": "Plenty of time in which\nyour referred sales will be\nattributed to you.",
+            "fontsize_des_block": 16,
+            "fontsize_des_block_mb": 14,
+            "lineheight_des_block": 22,
+            "mg_bottom_des": 0,
+            "color_des_block": "#3c3c3c",
+            "button": "",
+            "link": "",
+            "button_style": "style1",
+            "fontsize_button": 14,
+            "button_width": 235,
+            "fontweight_button": "500",
+            "enable_underline_button": false,
+            "color_button": "#ba7a2d",
+            "button_border": "",
+            "button_background": "",
+            "button_background_gradient": "",
+            "button_color_hover": "#ba7a2d",
+            "button_border_hover": "",
+            "button_background_hover": "",
+            "button_background_gradient_hover": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_d8V48d",
+        "text_zKpEGg",
+        "text_tPY3fY",
+        "text_4M3bHR",
+        "text_BVPXHc"
+      ],
+      "custom_css": [
+        ".halo-item a {padding: 12px !important;}",
+        ".policies-icon {margin-bottom: 15px;}",
+        ".policies-text {font-size: 16px !important;}",
+        ".halo-block-header {display: flex; flex-direction: column-reverse; text-align: start !important;}",
+        ".halo-block-header .title .text {padding: 0 0 20px 0;}",
+        ".halo-block-header .rte {margin: 15px 0;}",
+        ".eventpaymenmethods {display: none !important;}"
+      ],
+      "settings": {
+        "container": "1170",
+        "padding_full_width": 0,
+        "display_border_top": false,
+        "display_border_bottom": false,
+        "border_color": "#d0d0d0",
+        "service_block_swipe_on_mobile": "slider",
+        "color_icon_slider": "#212121",
+        "service_block_style": "style_1",
+        "policies_bg": "#ffffff",
+        "policies_bg_gradient": "",
+        "service_block_title": "Why partners choose us",
+        "enable_border_title": false,
+        "color_title": "#000000",
+        "fontsize_title": 30,
+        "fontsize_title_mb": 22,
+        "mg_bottom_title_service_block": 12,
+        "mg_bottom_title_service_block_mb": 12,
+        "service_block_des": "Lorem ipsum dolor sit amet, consectetur",
+        "service_block_des_pos": "top",
+        "color_des": "#000000",
+        "fontsize_des": 16,
+        "mg_top_service_block_des": 50,
+        "mg_bottom_service_block_des": 50,
+        "view_all": "",
+        "view_all_align": "center",
+        "font_weight_view_all": "400",
+        "mg_top_view": 0,
+        "mg_bottom_view": 30,
+        "enable_border_view_all": true,
+        "link_view_all": "",
+        "color_view_all": "#3c3c3c",
+        "icon_view_all": "",
+        "color_view_all_icon": "#eb492f",
+        "title_align": "center",
+        "item_width": "full_width",
+        "border_item": "none",
+        "enable_item_distance": true,
+        "enable_hover_box_shadow": false,
+        "enable_hover_effects_top": false,
+        "item_padding_top": 13,
+        "item_padding_bottom": 13,
+        "item_padding_left_right": 40,
+        "item_radius": 4,
+        "grid_gap": 30,
+        "mg_top_desktop": 0,
+        "mg_top_tablet": 50,
+        "mg_top_mobile": 50,
+        "mg_bottom_desktop": 60,
+        "mg_bottom_tablet": 50,
+        "mg_bottom_mobile": 50
+      }
+    },
+    "as_register_and_chat_with_us_8AFKqU": {
+      "type": "asRegisterAndChatWithUS",
+      "blocks": {
+        "text_fDCARf": {
+          "type": "text",
+          "settings": {
+            "ticket-heading": "Register now",
+            "sub_content-txt": "Join the affiliate program right now by a simple registration process.",
+            "btn-txt": "Get Started",
+            "btn-url": "#",
+            "svg-icon": ""
+          }
+        },
+        "text_eF4Vyz": {
+          "type": "text",
+          "settings": {
+            "ticket-heading": "Chat with us",
+            "sub_content-txt": "Contact us if you still have questions. Our team will assist you shortly.",
+            "btn-txt": "Start the chat",
+            "btn-url": "#",
+            "svg-icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"29\" height=\"30\" viewbox=\"0 0 29 30\" fill=\"none\">\n<path d=\"M27.8063 14.9969C27.8063 22.0643 22.077 27.7936 15.0096 27.7936C7.94216 27.7936 2.21289 22.0643 2.21289 14.9969C2.21289 7.92947 7.94216 2.2002 15.0096 2.2002C22.077 2.2002 27.8063 7.92947 27.8063 14.9969Z\" fill=\"white\"></path>\n<path d=\"M3.49256 26.5139C4.13239 24.8077 5.41206 21.2673 5.41206 20.7554L10.5307 24.5944L3.49256 26.5139Z\" fill=\"white\"></path>\n<path d=\"M0.933594 29.102C1.48553 27.0821 1.96701 25.1444 2.55419 23.2538C2.83603 22.3495 2.77731 21.5979 2.35455 20.7172C-1.63821 12.1562 3.95165 2.15084 13.3346 1.02347C21.7077 0.01354 29.0473 6.55462 29.0004 14.9981C28.9534 22.0912 23.4222 28.1273 16.3762 28.7849C13.6987 29.0315 11.1621 28.5383 8.74297 27.3757C8.49635 27.2583 8.13231 27.223 7.86221 27.2935C5.58399 27.8689 3.31751 28.4796 0.933594 29.102ZM4.29221 25.7786C5.61922 25.4263 6.82879 25.121 8.02662 24.7921C8.46112 24.663 8.82517 24.7099 9.23619 24.9448C11.5731 26.2953 14.0862 26.8003 16.752 26.3658C23.3283 25.2854 27.5207 19.4019 26.4403 12.8139C25.4421 6.64857 19.1359 2.25653 13.0058 3.4661C4.78543 5.06321 0.874877 13.9177 5.19645 21.1047C5.33737 21.3396 5.38435 21.6919 5.31389 21.962C5.0203 23.1833 4.668 24.4046 4.29221 25.7786Z\" fill=\"#34C221\"></path>\n<path d=\"M18.7133 21.6212C18.9952 21.5859 19.3357 21.5624 19.6528 21.492C21.1677 21.1279 22.1307 20.0006 22.0837 18.6149C22.0719 18.4152 21.9662 18.1216 21.8018 18.0394C20.8624 17.5579 19.9112 17.1117 18.9599 16.6654C18.6194 16.501 18.3728 16.6302 18.1614 16.9121C17.8561 17.3231 17.5155 17.6989 17.2102 18.0981C16.9636 18.4152 16.6935 18.4387 16.3412 18.2978C14.38 17.4875 12.8651 16.1605 11.7377 14.3637C11.5029 13.9762 11.5264 13.7061 11.8199 13.3773C12.09 13.072 12.3484 12.7431 12.548 12.3908C12.6537 12.1912 12.689 11.8859 12.6185 11.6862C12.2779 10.7702 11.9021 9.86601 11.5029 8.97351C11.4207 8.77387 11.221 8.51551 11.0449 8.49203C10.3285 8.39808 9.62392 8.33936 9.04849 8.98525C7.79195 10.371 7.53359 12.156 8.56701 14.0467C9.97622 16.7007 11.9726 18.8967 14.6736 20.3411C15.9184 20.9988 17.2219 21.5272 18.7133 21.6212Z\" fill=\"white\"></path>\n<path d=\"M18.7136 21.6212C17.2222 21.5272 15.9186 20.9988 14.6738 20.3411C11.9729 18.8967 9.97648 16.7124 8.54378 14.0467C7.52211 12.156 7.78046 10.371 9.02526 8.98525C9.61243 8.33936 10.3053 8.39808 11.0216 8.49203C11.1978 8.51551 11.3974 8.77387 11.4796 8.97351C11.8789 9.86601 12.2547 10.7702 12.5953 11.6862C12.6657 11.8859 12.6305 12.1912 12.5248 12.3908C12.3369 12.7431 12.0668 13.072 11.7967 13.3773C11.5031 13.7061 11.4796 13.9762 11.7145 14.3637C12.8301 16.1722 14.3568 17.4875 16.3179 18.2978C16.682 18.4504 16.9521 18.4152 17.1869 18.0981C17.4923 17.6989 17.8328 17.3113 18.1382 16.9121C18.3495 16.6185 18.5961 16.501 18.9367 16.6654C19.8879 17.1234 20.8509 17.5579 21.7786 18.0394C21.9313 18.1216 22.0487 18.4152 22.0605 18.6149C22.1074 20.0123 21.1445 21.1279 19.6296 21.492C19.336 21.5624 18.9954 21.5859 18.7136 21.6212Z\" fill=\"#34C221\"></path>\n</svg>"
+          }
+        }
+      },
+      "block_order": [
+        "text_fDCARf",
+        "text_eF4Vyz"
+      ],
+      "settings": {
+        "background_image": "shopify://shop_images/bg-image.png",
+        "subheading-txt": "Lorem ipsum dolor sit amet, consectetur",
+        "heading-txt": "Let’s get you started!",
+        "right-side-icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"17\" height=\"17\" viewbox=\"0 0 17 17\" fill=\"none\">\n<path d=\"M8.20109 0L8.9368 2.23699C9.7505 4.71114 11.691 6.65169 14.1652 7.46539L16.4022 8.20109L14.1652 8.9368C11.691 9.7505 9.7505 11.691 8.9368 14.1652L8.20109 16.4022L7.46539 14.1652C6.65169 11.691 4.71114 9.7505 2.23699 8.9368L0 8.20109L2.23699 7.46539C4.71114 6.65169 6.65169 4.71114 7.46539 2.23699L8.20109 0Z\" fill=\"url(#paint0_linear_75_695)\"></path>\n<defs>\n<lineargradient id=\"paint0_linear_75_695\" x1=\"13.8282\" y1=\"-5.05136\" x2=\"0.0248408\" y2=\"-3.74846\" gradientunits=\"userSpaceOnUse\">\n<stop stop-color=\"#FFB6E9\"></stop>\n<stop offset=\"0.438445\" stop-color=\"#FA2FBD\"></stop>\n<stop offset=\"1\" stop-color=\"#7C34C5\"></stop>\n</lineargradient>\n</defs>\n</svg>"
+      }
+    },
+    "as_how_to_use_section_pXqkBR": {
+      "type": "asHowToUseSection",
+      "settings": {
+        "subheading-txt": "Lorem ipsum dolor sit amet, consectetur",
+        "heading-txt": "Easy to start",
+        "right-side-icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"17\" height=\"17\" viewbox=\"0 0 17 17\" fill=\"none\">\n<path d=\"M8.20109 0L8.9368 2.23699C9.7505 4.71114 11.691 6.65169 14.1652 7.46539L16.4022 8.20109L14.1652 8.9368C11.691 9.7505 9.7505 11.691 8.9368 14.1652L8.20109 16.4022L7.46539 14.1652C6.65169 11.691 4.71114 9.7505 2.23699 8.9368L0 8.20109L2.23699 7.46539C4.71114 6.65169 6.65169 4.71114 7.46539 2.23699L8.20109 0Z\" fill=\"url(#paint0_linear_75_695)\"></path>\n<defs>\n<lineargradient id=\"paint0_linear_75_695\" x1=\"13.8282\" y1=\"-5.05136\" x2=\"0.0248408\" y2=\"-3.74846\" gradientunits=\"userSpaceOnUse\">\n<stop stop-color=\"#FFB6E9\"></stop>\n<stop offset=\"0.438445\" stop-color=\"#FA2FBD\"></stop>\n<stop offset=\"1\" stop-color=\"#7C34C5\"></stop>\n</lineargradient>\n</defs>\n</svg>",
+        "how_to_use_image": "shopify://shop_images/how_to_use.png"
+      }
+    },
+    "custom_service_block_nfH6mz": {
+      "type": "custom-service-block",
+      "blocks": {
+        "text_gCkrbW": {
+          "type": "Text",
+          "settings": {
+            "bg_color_block": "#f8f8f8",
+            "border_block": "#f8f8f8",
+            "icon_type": "image",
+            "image": "shopify://shop_images/Group_2_3.png",
+            "icon": "",
+            "width_icon": 64,
+            "height_icon": 64,
+            "mg_bottom_icon": 45,
+            "color_icon": "#3c3c3c",
+            "text": "",
+            "type_tab_font": "font_1",
+            "fontsize_title_block": 18,
+            "fontsize_title_block_mb": 18,
+            "title_block_font_weight": "700",
+            "mg_bottom_title": 15,
+            "mg_bottom_title_mb": 0,
+            "color_block": "#232323",
+            "description": "Entertainment discovery and\nmonetisation platform",
+            "fontsize_des_block": 16,
+            "fontsize_des_block_mb": 14,
+            "lineheight_des_block": 22,
+            "mg_bottom_des": 0,
+            "color_des_block": "#3c3c3c",
+            "button": "",
+            "link": "",
+            "button_style": "style1",
+            "fontsize_button": 14,
+            "button_width": 235,
+            "fontweight_button": "500",
+            "enable_underline_button": false,
+            "color_button": "#ba7a2d",
+            "button_border": "",
+            "button_background": "",
+            "button_background_gradient": "",
+            "button_color_hover": "#ba7a2d",
+            "button_border_hover": "",
+            "button_background_hover": "",
+            "button_background_gradient_hover": ""
+          }
+        },
+        "text_n3qqGm": {
+          "type": "Text",
+          "settings": {
+            "bg_color_block": "#f8f8f8",
+            "border_block": "#f8f8f8",
+            "icon_type": "text",
+            "icon": "",
+            "width_icon": 64,
+            "height_icon": 64,
+            "mg_bottom_icon": 45,
+            "color_icon": "#3c3c3c",
+            "text": "Ticket hotline",
+            "type_tab_font": "font_1",
+            "fontsize_title_block": 18,
+            "fontsize_title_block_mb": 18,
+            "title_block_font_weight": "700",
+            "mg_bottom_title": 15,
+            "mg_bottom_title_mb": 0,
+            "color_block": "#232323",
+            "description": "<h4> +091 25825 23685 </h4>\n<p> Mon - Fri 09:00 - 21:00 </p>",
+            "fontsize_des_block": 16,
+            "fontsize_des_block_mb": 14,
+            "lineheight_des_block": 22,
+            "mg_bottom_des": 0,
+            "color_des_block": "#3c3c3c",
+            "button": "",
+            "link": "",
+            "button_style": "style1",
+            "fontsize_button": 14,
+            "button_width": 235,
+            "fontweight_button": "500",
+            "enable_underline_button": false,
+            "color_button": "#ba7a2d",
+            "button_border": "",
+            "button_background": "",
+            "button_background_gradient": "",
+            "button_color_hover": "#ba7a2d",
+            "button_border_hover": "",
+            "button_background_hover": "",
+            "button_background_gradient_hover": ""
+          }
+        },
+        "text_PnjGRW": {
+          "type": "Text",
+          "settings": {
+            "bg_color_block": "#f8f8f8",
+            "border_block": "#f8f8f8",
+            "icon_type": "image",
+            "image": "shopify://shop_images/razorpay-icon_1.png",
+            "icon": "",
+            "width_icon": 64,
+            "height_icon": 64,
+            "mg_bottom_icon": 45,
+            "color_icon": "#3c3c3c",
+            "text": "We Accept",
+            "type_tab_font": "font_1",
+            "fontsize_title_block": 18,
+            "fontsize_title_block_mb": 18,
+            "title_block_font_weight": "700",
+            "mg_bottom_title": 15,
+            "mg_bottom_title_mb": 0,
+            "color_block": "#232323",
+            "description": "",
+            "fontsize_des_block": 16,
+            "fontsize_des_block_mb": 14,
+            "lineheight_des_block": 22,
+            "mg_bottom_des": 0,
+            "color_des_block": "#3c3c3c",
+            "button": "",
+            "link": "",
+            "button_style": "style1",
+            "fontsize_button": 14,
+            "button_width": 235,
+            "fontweight_button": "500",
+            "enable_underline_button": false,
+            "color_button": "#ba7a2d",
+            "button_border": "",
+            "button_background": "",
+            "button_background_gradient": "",
+            "button_color_hover": "#ba7a2d",
+            "button_border_hover": "",
+            "button_background_hover": "",
+            "button_background_gradient_hover": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_gCkrbW",
+        "text_n3qqGm",
+        "text_PnjGRW"
+      ],
+      "custom_css": [
+        ".custom-service-block {background-color: #f0f0f0;}",
+        ".halo-item a {background-color: #0000; border: 0;}",
+        ".policies-icon {margin-bottom: 5px;}",
+        ".halo-item:nth-child(2) a .policies-content :where(span, p, h4) {margin: 3px 0;}",
+        ".halo-item:nth-child(3) a {display: flex; flex-direction: column-reverse; justify-content: start;}",
+        ".eventpaymenmethods {display: none;}",
+        ".policies-des {width: 70%; margin: auto;}"
+      ],
+      "settings": {
+        "container": "1170",
+        "padding_full_width": 0,
+        "display_border_top": false,
+        "display_border_bottom": false,
+        "border_color": "#d0d0d0",
+        "service_block_swipe_on_mobile": "slider",
+        "color_icon_slider": "#212121",
+        "service_block_style": "style_1",
+        "policies_bg": "#ffffff",
+        "policies_bg_gradient": "",
+        "policies_bg_image": "shopify://shop_images/bg-image.png",
+        "service_block_title": "",
+        "enable_border_title": false,
+        "color_title": "#000000",
+        "fontsize_title": 30,
+        "fontsize_title_mb": 22,
+        "mg_bottom_title_service_block": 12,
+        "mg_bottom_title_service_block_mb": 12,
+        "service_block_des": "",
+        "service_block_des_pos": "bottom",
+        "color_des": "#000000",
+        "fontsize_des": 16,
+        "mg_top_service_block_des": 50,
+        "mg_bottom_service_block_des": 50,
+        "view_all": "",
+        "view_all_align": "center",
+        "font_weight_view_all": "400",
+        "mg_top_view": 0,
+        "mg_bottom_view": 30,
+        "enable_border_view_all": true,
+        "link_view_all": "",
+        "color_view_all": "#3c3c3c",
+        "icon_view_all": "",
+        "color_view_all_icon": "#eb492f",
+        "title_align": "center",
+        "item_width": "full_width",
+        "border_item": "none",
+        "enable_item_distance": true,
+        "enable_hover_box_shadow": false,
+        "enable_hover_effects_top": false,
+        "item_padding_top": 13,
+        "item_padding_bottom": 13,
+        "item_padding_left_right": 40,
+        "item_radius": 4,
+        "grid_gap": 30,
+        "mg_top_desktop": 45,
+        "mg_top_tablet": 50,
+        "mg_top_mobile": 50,
+        "mg_bottom_desktop": 45,
+        "mg_bottom_tablet": 50,
+        "mg_bottom_mobile": 50
+      }
+    }
+  },
+  "order": [
+    "main",
+    "as_banner_slider_3bJc7j",
+    "as_brand_slider_yr4iyn",
+    "custom_service_block_F9rTp8",
+    "as_register_and_chat_with_us_8AFKqU",
+    "as_how_to_use_section_pXqkBR",
+    "custom_service_block_nfH6mz"
+  ]
+}

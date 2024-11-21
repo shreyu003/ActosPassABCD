@@ -1,0 +1,126 @@
+<section class="section-space2">
+    <div class="container-1170">
+        <div class="w-100">
+            <p class="subheading"> {{ section.settings.subheading-txt }} 
+                <span class="star-icon">
+                    {{ section.settings.star-icon }}
+                </span>
+            </p>
+            <h3 class="main_heading"> {{ section.settings.heading-txt }}
+                <span class="three-line-icon">
+                    {{ section.settings.three-line-icon }}
+                </span>
+                <span class="round-ring-icon">
+                    {{ section.settings.round-ring-icon }}
+                </span>
+            </h3>
+        </div>
+        <div class="custom-row">
+            <div class="col-6 form-data-box">
+                <form action="">
+                    <ul class="form-data">
+                    {% for listItems in section.blocks %}
+                            <li>
+                                <label> {{ listItems.settings.form_lable-txt }} </label>
+                                <input type="text">
+                            </li>
+                        {% endfor %}
+                        <button type="submit" class="btn-3 text-uppercase"> {{ section.settings.submit-btn-txt }} </button>
+                    </ul>
+                </form>
+            </div>
+            <div class="col-6 event-box">
+                <div class="event_box-inner">
+                    <div class="event-bg"></div>
+                    {{ section.settings.create-event-icon }}
+                    <h2> {{ section.settings.create-event-heading }} </h2>
+                    <p> {{ section.settings.create-event-desc }} </p>
+                    <input type="file" id="uploadTicketInput" class="upload-input">
+                    <button class="btn-3" id="uploadTicketBtn"> {{ section.settings.upload-btn-txt }} </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.querySelector('#uploadTicketBtn').addEventListener('click', ()=>{
+        document.querySelector('#uploadTicketInput').click();
+    });
+</script>
+
+{% schema %}
+{
+    "name": "Ticket Sale Form",
+    "settings": [
+        {
+            "type": "textarea",
+            "id": "subheading-txt",
+            "label": "Add Your Description"
+        },
+        {
+            "type": "html",
+            "id": "star-icon",
+            "label": "Add Your Icon"
+        },
+        {
+            "type": "text",
+            "id": "heading-txt",
+            "label": "Add Your Title"
+        },
+        {
+            "type": "html",
+            "id": "three-line-icon",
+            "label": "Add Your Left Icon"
+        },
+        {
+            "type": "html",
+            "id": "round-ring-icon",
+            "label": "Add Your Right Icon"
+        },
+        {
+            "type": "text",
+            "id": "submit-btn-txt",
+            "label": "Add Button Text"
+        },
+        {
+            "type": "html",
+            "id": "create-event-icon",
+            "label": "Add Your Event Icon"
+        },
+        {
+            "type": "text",
+            "id": "create-event-heading",
+            "label": "Add Your Title"
+        },
+        {
+            "type": "textarea",
+            "id": "create-event-desc",
+            "label": "Add Your Description"
+        },
+        {
+            "type": "text",
+            "id": "upload-btn-txt",
+            "label": "Add Upload Button Text"
+        }
+    ],
+    "blocks": [
+        {
+            "name": "counter position block",
+            "type": "image_picker",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "form_lable-txt",
+                    "label": "Add Your Lable"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Ticket Sale Form"
+        }
+    ]
+}
+{% endschema %}

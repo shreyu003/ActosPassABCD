@@ -1,0 +1,56 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-cart",
+      "custom_css": [
+        ".cart-content-item[data-cart-total] {width: 450px; background: #fbf6fe; border: 1px solid #b161eb; padding: 15px;}",
+        ".cart--totals-title {color: #9c41dc; font-size: 18px;}",
+        ".button.button-1,.button.button--primary {background: #9c41dc; border-color: #9c41dc; color: white;}",
+        ".button.button-2:hover,.button.button--secondary:hover,.button.button--secondary:focus {color: var(--btn-2-color-hover); background: #9c41dc; border-color: #9c41dc;}",
+        ".cart-header {background-color: #fbf6fe; border: 1px solid #9c41dc;}"
+      ],
+      "settings": {
+        "show_breadcrumb": false,
+        "breadcrumb_color": "#999999",
+        "breadcrumb_alignment": "left",
+        "show_page_title": true,
+        "page_title_color": "#232323",
+        "page_title_alignment": "left",
+        "container": "container",
+        "side_padding_full_width": 0,
+        "mg_top_desktop": 0,
+        "mg_top_tablet": 0,
+        "mg_top_mobile": 0,
+        "mg_bottom_desktop": 0,
+        "mg_bottom_tablet": 0,
+        "mg_bottom_mobile": 0,
+        "enable_sticky_button_checkout_mb": false,
+        "enable_dropdown": false,
+        "show_vendor": false,
+        "image_ratio": "square",
+        "portrait_aspect_ratio": 133,
+        "show_cart_countdown": false,
+        "cart_countdown_time": 40,
+        "cart_countdown_text_item": "Please, hurry! Someone has placed an order on one of the items you have in the cart. We'll keep it for you for",
+        "cart_countdown_text_empty_1": "Please, hurry! The",
+        "cart_countdown_text_empty_2": "product is being sold at a shocking promotional price. We'll keep it for you for",
+        "cart_countdown_product": "",
+        "show_trust_image": false,
+        "continue_button_action": "1",
+        "custom_button_link": "shopify://collections/collection-home-1-1"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,0 +1,171 @@
+<style>
+    .icon_txt_main{
+        padding-top: {{ section.settings.padding-top-desk }}px;
+        padding-bottom: {{ section.settings.padding-bottom-desk }}px;
+    }
+
+    @media screen and (max-width: 1024px){
+        .icon_txt_main{
+            padding-top: {{ section.settings.padding-top-taplop }}px;
+            padding-bottom: {{ section.settings.padding-bottom-taplop }}px;
+        }
+    }
+    
+    @media screen and (max-width: 768px){
+        .icon_txt_main{
+            padding-top: {{ section.settings.padding-top-tab }}px;
+            padding-bottom: {{ section.settings.padding-bottom-tab }}px;
+        }
+    }
+    
+    @media screen and (max-width: 425px){
+        .icon_txt_main{
+            padding-top: {{ section.settings.padding-top-mbl }}px;
+            padding-bottom: {{ section.settings.padding-bottom-mbl }}px;
+        }
+    }
+</style>
+
+<section class="icon_txt_main">
+    <div class="container-1170">
+        <div class="icon_txt_box">
+            {% for block in section.blocks %}
+                <div class="icon_txt_box_inner">
+                    <ul>
+                        <li> {{ block.settings.icon }} </li>
+                        <li>
+                            <p> {{ block.settings.subttl-txt }} </p>
+                        </li>
+                        <li>
+                            <h4> {{ block.settings.ttl-txt }} </h4>
+                        </li>
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "as icon with text",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Specing Top"
+        },
+        {
+            "type": "range",
+            "id": "padding-top-desk",
+            "label": "Desktop",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding-top-taplop",
+            "label": "Laptop",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding-top-tab",
+            "label": "Tablet",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding-top-mbl",
+            "label": "Mobile",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "header",
+            "content": "Specing Bottom"
+        },
+        {
+            "type": "range",
+            "id": "padding-bottom-desk",
+            "label": "Desktop",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding-bottom-taplop",
+            "label": "Laptop",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding-bottom-tab",
+            "label": "Tablet",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding-bottom-mbl",
+            "label": "Mobile",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "text",
+            "name": "Icon with Text",
+            "settings": [
+                {
+                    "type": "html",
+                    "id": "icon",
+                    "label": "Add Icon"
+                },
+                {
+                    "type": "text",
+                    "id": "subttl-txt",
+                    "label": "Add Sub Title"
+                },
+                {
+                    "type": "text",
+                    "id": "ttl-txt",
+                    "label": "Add Title"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "As Icon with Text"
+        }
+    ]
+}
+{% endschema %}

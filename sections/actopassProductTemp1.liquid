@@ -1,0 +1,68 @@
+{% render 'actopass-product-template1' %}
+
+{% schema %}
+    {
+        "name": "Acotpass Product 2",
+        "settings": [],
+        "blocks": [
+            {
+              "type": "@app"
+            },
+            {
+                "type": "price-detail",
+                "name": "Price Details Block",
+                "settings": [
+                    {
+                        "type": "url",
+                        "id": "dynamic_page_url",
+                        "label": "Page URL"
+                    },
+                    {
+                        "type": "text",
+                        "id": "price-from_ttl",
+                        "label": "Add Title",
+                        "default": "Price From:"
+                    },
+                    {
+                        "type": "text",
+                        "id": "price-from_subttl",
+                        "label": "Add Sub Title",
+                        "default": "Per Person"
+                    },
+                    {
+                        "type": "html",
+                        "id": "instant_confirmation-icon",
+                        "label": "Add SVG Icon"
+                    },
+                    {
+                        "type": "text",
+                        "id": "icon-txt",
+                        "label": "Add Icon Related Text",
+                        "default": "Instant Confirmation"
+                    },
+                    {
+                        "type": "url",
+                        "id": "select-ticket-btn",
+                        "label": "Add Ticket Book Page Link"
+                    },
+                    {
+                        "type": "html",
+                        "id": "select-ticket-btn-icon",
+                        "label": "Add Button Icon"
+                    },
+                    {
+                        "type": "text",
+                        "id": "select-ticket-btn-txt",
+                        "label": "Add Button Text",
+                        "default": "Select Tickets"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Acotpass Product 2"
+            }
+        ]
+    }
+    {% endschema %}

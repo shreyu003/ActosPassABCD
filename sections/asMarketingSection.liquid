@@ -1,0 +1,107 @@
+<style>
+    .bg-inner{
+        width: 100%;
+        padding: 50px 0;
+        background-image: url('{{ section.settings.background_image |  img_url: '' }}');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+</style>
+
+<section class="bg-line">
+    <div class="bg-inner">
+        <div class="container-1170">
+            <div class="title-sec">
+                <div>
+                    <p class="astitals">{{ section.settings.astital }}
+                        {% render 'subtitle-icon' %}
+                    </p>
+                </div>
+                <div class="title_icon_box">
+                    <div class="title-icon-left">
+                        {% render 'title-icon' %}
+                    </div>
+                    <h3 class="title">
+                        {{ section.settings.brand_title }}
+                    </h3>
+                    <div class="title-icon-right">
+                        {% render 'title-icon-right' %}
+                    </div>
+                </div>
+            </div>
+            <div class="marketing_section">
+                {% for block in section.blocks %}
+                    <div class="marketing-section-inner">
+                        <div class="marketing_section-content">
+                            <div>
+                                <h3 class="icon-heading"> {{ block.settings.title-txt }} </h3>
+                                <div> {{ block.settings.desc-txt }} </div>
+                            </div>
+                        </div>
+                        <div class="marketing_section-img">
+                            <div>
+                                <img src="{{ block.settings.marketing_content_img | img_url: '' }}" alt="Marketing Image">
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Marketing Content Section",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "background_image",
+            "label": "Add Your BG Image"
+        },
+        {
+            "type": "header",
+            "content": "Page Header Title"
+        },
+        {
+            "type": "text",
+            "id": "astital",
+            "label": "Sub title"
+        },
+        {
+            "type": "text",
+            "id": "brand_title",
+            "label": "Title"
+        }
+    ],
+    "blocks": [
+        {
+            "name": "Marketing Content",
+            "type": "text",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title-txt",
+                    "label": "Add Your Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "desc-txt",
+                    "label": "Add Description"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "marketing_content_img",
+                    "label": "Add Image"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Marketing Content Section"
+        }
+    ]
+}
+{% endschema %}

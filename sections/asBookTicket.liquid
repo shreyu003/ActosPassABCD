@@ -1,0 +1,333 @@
+<section class="asbg_color">
+  <div class="ascontainer">
+    <div class="ticket_select_popup-inner">
+      <div class="loader">
+        <div class="loader_wrapper">
+          <div class="loading"></div>
+        </div>
+      </div>
+      <div class="ticket_select_popup-wrapper" style="display: none;">
+        <div class="prd_name_desc_box">
+          <h3 id="productName"></h3>
+          <p id="productDesc" class="desc-truncated"></p>
+        </div>
+        <div>
+          <p class="book-ticket-txt">{{ section.settings.book-ticket-txt }}</p>
+        </div>
+        <div class="product-grid"></div>
+      </div>
+    </div>
+    <div class="asbtnbox">
+      <button class="apply_btn addToCartBtn" disabled>{{ section.settings.add_to_cart_btn-txt }}</button>
+    </div>
+  </div>
+</section>
+
+<section class="sticky_book_ticket">
+  <div class="container-1170">
+    <div class="sticky_book_ticket_wrapper">
+      <div class="as-ticket-icon">
+        <div class="as_book_ticket_qty_icon_box">
+          <div class="as-ticket_design ticket_layout1">
+            {% render 'as-ticket-icon' %}
+          </div>
+          <div class="as-ticket_design ticket_layout2">
+            {% render 'as-ticket-icon' %}
+            <div class="ticket-inner_detail">
+              {% render 'as-small-ticket' %} <p id="TotalSelectedTicket"></p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3>{{ section.settings.order_detail }}</h3>
+        </div>
+      </div>
+      <div>
+        <button class="apply_btn addToCartBtn" disabled>{{ section.settings.sticky-addtocartbtn-txt }}</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", async function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const currentProductHandle = urlParams.get("product");
+    let selectedVariantId = null;
+    let selectedTime = null;
+    let selectedTicketType = null;
+    let selectedTicketPrice = null;
+    let selectedQuantity = 1;
+
+    const getDayName = (dateString) => {
+      const options = { weekday: 'short' };
+      const date = new Date(dateString);
+      return date.toLocaleDateString('en-US', options);
+    };
+
+    const addToCartBtns = document.querySelectorAll(".addToCartBtn");
+
+    const updateTotalSelectedTicket = () => {
+      document.getElementById("TotalSelectedTicket").innerHTML = `x${selectedQuantity}`;
+    };
+
+    if (currentProductHandle) {
+      const loader = document.querySelector(".loader");
+      const popupWrapper = document.querySelector(".ticket_select_popup-wrapper");
+
+      loader.style.display = "block";
+      popupWrapper.style.display = "none";
+
+      try {
+        const response = await fetch("/products.json");
+        const data = await response.json();
+        const allProducts = data.products;
+
+        const currentProduct = allProducts.find(
+          (product) => product.handle === currentProductHandle
+        );
+
+        if (currentProduct) {
+          document.getElementById("productName").innerHTML = currentProduct.title;
+          document.getElementById("productDesc").innerHTML = currentProduct.body_html;
+
+          const relatedProducts = allProducts.filter(
+            (product) =>
+              product.vendor === currentProduct.vendor &&
+              !product.tags.includes("home")
+          );
+
+          const productGrid = document.querySelector(".product-grid");
+          let productItemsHTML = "";
+          const groupedData = {};
+
+          relatedProducts.forEach((product) => {
+            product.variants.forEach((variant) => {
+              const [datePart, timePart] = variant.title.split(" / ");
+
+              if (!groupedData[datePart]) {
+                groupedData[datePart] = {
+                  times: {},
+                  ticketTypes: new Map(),
+                  variantId: variant.id,
+                };
+              }
+              groupedData[datePart].times[timePart] = true;
+              if (variant.option3) {
+                groupedData[datePart].ticketTypes.set(
+                  variant.option3,
+                  `₹${variant.price}`
+                );
+              }
+            });
+          });
+
+          for (const date in groupedData) {
+            const { times, variantId } = groupedData[date];
+            const dayName = getDayName(date);
+
+            productItemsHTML += `
+            <div class="asProductItem">
+              <div class="date_price_box" data-variant-id='${variantId}'>
+                <p>${dayName}</p>
+                <p>${date}</p>
+              </div>
+              <div class="time_box">
+                <div class="time_box_inner">
+                  <div class="asTimeBox">
+                    ${Object.keys(times)
+                      .map(
+                        (time) => `
+                        <div class="time-wrapper">
+                          <p class="time-option" data-time='${time}'>${time}</p>
+                        </div>`).join("")}
+                  </div>
+                </div>
+              </div>
+              <div class="ticket-type-options">
+                <div class="ticket-type-grid">
+                  <div class="asVriantTyp">
+                    ${Array.from(groupedData[date].ticketTypes.entries()).map(([type, price]) => `
+                      <div class="ticket-type-option" data-option="${type}" data-price="${price}">
+                        ${type} - ${price}
+                      </div>`).join("")}
+                  </div>
+                  <div class="quantity-selector">
+                    <div class="quantity-selector-inner">
+                      <button type="button" class="quantity-decrease as-quantity-btn" disabled> - </button>
+                      <input type="number" class="quantity-input" value="1" min="1" />
+                      <button type="button" class="quantity-increase as-quantity-btn" disabled> + </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>`;
+          }
+
+          productGrid.innerHTML = productItemsHTML;
+
+          document.querySelectorAll(".asProductItem").forEach((item) => {
+            const datePriceBox = item.querySelector(".date_price_box");
+            const timeBox = item.querySelector(".time_box");
+            const ticketTypeBox = item.querySelector(".ticket-type-options");
+
+            datePriceBox.addEventListener("click", function () {
+              document.querySelectorAll(".asProductItem").forEach((otherItem) => {
+                if (otherItem !== item) {
+                  otherItem.querySelector(".time_box").style.display = "none";
+                  otherItem.querySelector(".date_price_box").style.display = "flex";
+                  otherItem.querySelector(".ticket-type-options").style.display = "none";
+                }
+              });
+
+              datePriceBox.style.display = "none";
+              timeBox.style.display = "block";
+
+              selectedVariantId = datePriceBox.dataset.variantId;
+            });
+
+            timeBox.querySelectorAll(".time-option").forEach((timeOption) => {
+              timeOption.addEventListener("click", function () {
+                timeBox.style.display = "none";
+                ticketTypeBox.style.display = "block";
+
+                selectedTime = timeOption.dataset.time;
+              });
+            });
+
+            ticketTypeBox.querySelectorAll(".ticket-type-option").forEach((option) => {
+              option.addEventListener("click", function () {
+                ticketTypeBox.querySelectorAll(".ticket-type-option").forEach((opt) => {
+                  opt.classList.remove("selected-ticket-option");
+                });
+                this.classList.add("selected-ticket-option");
+
+                selectedTicketType = this.dataset.option;
+                selectedTicketPrice = this.dataset.price;
+
+                const quantityDecreaseBtn = ticketTypeBox.querySelector(".quantity-decrease");
+                const quantityIncreaseBtn = ticketTypeBox.querySelector(".quantity-increase");
+                quantityDecreaseBtn.disabled = false;
+                quantityIncreaseBtn.disabled = false;
+
+                addToCartBtns.forEach((btn) => btn.disabled = false);
+              });
+            });
+
+            const quantityDecreaseBtn = ticketTypeBox.querySelector(".quantity-decrease");
+            const quantityIncreaseBtn = ticketTypeBox.querySelector(".quantity-increase");
+            const quantityInput = ticketTypeBox.querySelector(".quantity-input");
+
+            quantityDecreaseBtn.addEventListener("click", () => {
+              if (selectedQuantity > 1) {
+                selectedQuantity -= 1;
+                quantityInput.value = selectedQuantity;
+                updateTotalSelectedTicket();
+              }
+            });
+
+            quantityIncreaseBtn.addEventListener("click", () => {
+              selectedQuantity += 1;
+              quantityInput.value = selectedQuantity;
+              updateTotalSelectedTicket();
+            });
+
+            quantityInput.addEventListener("change", () => {
+              const quantityValue = parseInt(quantityInput.value);
+              if (quantityValue > 0) {
+                selectedQuantity = quantityValue;
+              } else {
+                selectedQuantity = 1;
+                quantityInput.value = selectedQuantity;
+              }
+              updateTotalSelectedTicket();
+            });
+          });
+        }
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      } finally {
+        loader.style.display = "none";
+        popupWrapper.style.display = "block";
+      }
+    }
+
+    addToCartBtns.forEach((addToCartBtn) => {
+      addToCartBtn.addEventListener("click", async function (event) {
+        event.preventDefault();
+
+        if (selectedVariantId) {
+          try {
+            const response = await fetch("/cart/add.js", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                items: [
+                  {
+                    id: selectedVariantId,
+                    quantity: selectedQuantity,
+                    properties: {
+                      "Selected Time": selectedTime,
+                      "Ticket Type": selectedTicketType,
+                      "Price": selectedTicketPrice,
+                    },
+                  },
+                ],
+              }),
+            });
+
+            if (response.ok) {
+              const cart = await response.json();
+              console.log("Added to cart:", cart);
+              window.location.href = "/cart";
+            } else {
+              console.error("Failed to add to cart:", response.statusText);
+              alert("Failed to add item to cart.");
+            }
+          } catch (error) {
+            console.error("Error adding to cart:", error);
+          }
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "as Book Ticket",
+    "settings": [
+      {
+        "type": "text",
+        "id": "book-ticket-txt",
+        "label": "Add Title",
+        "default": "Book your tickets now :"
+      },
+      {
+        "type": "text",
+        "id": "add_to_cart_btn-txt",
+        "label": "Add Button Text",
+        "default": "Book Now"
+      },
+      {
+        "type": "text",
+        "id": "order_detail",
+        "label": "Add Order Detail Text",
+        "default": "Order Detail"
+      },
+      {
+        "type": "text",
+        "id": "sticky-addtocartbtn-txt",
+        "label": "Add Sticky Button Text",
+        "default": "Book Now"
+      }
+    ],
+    "presets": [
+      {
+        "name": "as Book Ticket"
+      }
+    ]
+}
+{% endschema %}

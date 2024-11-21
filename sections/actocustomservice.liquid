@@ -1,0 +1,89 @@
+<style>
+  .actobgsrvc{
+    background-image: url("https://cdn.shopify.com/s/files/1/0889/3576/0194/files/Mask_group_c50a4add-44b8-4fa9-84aa-4866bbd9a1ee.png?v=1723003274");
+    background-position: center center;
+    background-size: cover;
+    background-color: rgb(230, 230, 230);
+  }
+</style>
+<div class="actobgsrvc">
+  <div class="container-1170">
+    <div class="actocustomsrvcblock">
+      <div class="srvcblocks">
+        {% for block in section.blocks %}
+          <div class="actosrvc {% if block.settings.chckrev %} revslayout {% endif %}">
+            <div class="srvccontent">
+              <p>{{ block.settings.srvtitle }}</p>
+            </div>
+            <div class="srvcimage">
+              <img src="{{ block.settings.srvimage | img_url: width: '' }}" alt=""
+                {% if block.settings.checkforwp %} style="display: none;" {% endif %}>
+              {% if block.settings.checkforwp %}
+                <a href="https://wa.me/+91{{ block.settings.wpnum }}" class="srvcwhatsapp">
+                  <img src="{{ block.settings.wpimage | img_url: width: '' }}" alt="">
+                  <img src="{{ block.settings.chatimage | img_url: width: ''}}" alt="">
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+    "name": "acto custom service block",
+    "settings": [],
+    "blocks": [
+        {
+            "type": "serviceblock",
+            "name": "service block",
+            "settings": [
+                {
+                    "type": "checkbox",
+                    "id": "chckrev",
+                    "label": "Reverse Layout",
+                    "default": false
+                },
+                {
+                    "type": "textarea",
+                    "id": "srvtitle",
+                    "label": "Add Text"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "srvimage",
+                    "label": "Add Image"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "checkforwp",
+                    "label": "Add Whatsapp and chat"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "chatimage",
+                    "label": "Add Chat Image"
+                },
+                {
+                    "type": "number",
+                    "id": "wpnum",
+                    "label": "add whatsapp number"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "wpimage",
+                    "label": "Add Whatsapp image"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "acto Custom Service Block"
+        }
+    ]
+}
+{% endschema %}

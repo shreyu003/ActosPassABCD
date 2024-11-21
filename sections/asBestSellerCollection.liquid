@@ -1,0 +1,271 @@
+<style>
+    .bestseller-grid{
+        padding-top: {{ section.settings.padding_top_desk }}px;
+        padding-bottom: {{ section.settings.padding_bottom_desk }}px;
+    }
+    .button-block a {
+        text-decoration: none;
+        display: inline-block;
+        padding: 8px 16px;
+        color: {{ section.settings.view_all_text_color }};
+        font-size: {{ section.settings.view_all_text_size }}px;
+        font-weight: {{ section.settings.view_all_text_weight }};
+    }
+    @media screen and (max-width: 1024px){
+        .bestseller-grid {
+            padding-top: {{ section.settings.padding_top_teplop }}px;
+            padding-bottom: {{ section.settings.padding_bottom_teplop }}px;
+        }
+    }
+    @media screen and (max-width: 768px){
+        .bestseller-grid {
+            padding-top: {{ section.settings.padding_top_tab }}px;
+            padding-bottom: {{ section.settings.padding_bottom_tab }}px;
+        }
+    }
+    @media screen and (max-width: 425px){
+        .bestseller-grid {
+            padding-top: {{ section.settings.padding_top_mbl }}px;
+            padding-bottom: {{ section.settings.padding_bottom_mbl }}px;
+        }
+    }
+ 
+</style>
+
+<section class="bestseller-grid">
+      <!-- Container for Title and Subtitle -->
+    <div class="container-1170">
+        <div class="heading_sec">
+            <div class="title-sec">
+                <div>
+                    <p class="astitals">{{ section.settings.astital }}
+                        {% render 'subtitle-icon' %}
+                    </p>
+                </div>
+                <div class="title_icon_box">
+                    <div class="title-icon-left">
+                        {% render 'title-icon' %}
+                    </div>
+                    <h3 class="title">
+                        {{ section.settings.brand_title }}
+                    </h3>
+                    <div class="title-icon-right">
+                        {% render 'title-icon-right' %}
+                    </div>
+                </div>
+            </div>
+            <div class="button-block">
+                <a href="/collections/{{ section.settings.bestseller_collection.handle }}">
+                    {{ section.settings.view_all_text }}
+                    {{ section.settings.view_all_icon }}
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container-1170">
+        <div class="grid4column">
+            {% for prd in section.settings.bestseller_collection.products %}
+                <div class="bstslr_card" data-city-tag="{{ prd.tags | join: ',' }}">
+                    <a href="{{ prd.url }}">
+                        <div class="bstslr_img">
+                            {% if prd.images.size > 1 %}
+                                <img src="{{ prd.images[1] | img_url: '500x' }}" alt="{{ prd.title }}">
+                            {% else %}
+                                <img src="{{ prd.featured_image | img_url: '500x' }}" alt="{{ prd.title }}">
+                            {% endif %}
+                            {% if prd.tags contains 'best seller' %}
+                                <p class="bestseller_tag"> best seller </p>
+                            {% endif %}
+                        </div>
+                        <div class="bstslr_content">
+                            <h4>{{ prd.title | truncate: 30 }}</h4>
+                            <div class="bstslr_content-inner">
+                                <p> <s> {{ prd.compare_at_price | money_without_trailing_zeros }} </s> </p>
+                                <p>{{ prd.price | money_without_trailing_zeros }}</p>
+                            </div>
+                            {% if prd.compare_at_price > prd.price %}
+                                <div class="discount_tag">
+                                    {% assign price_difference = prd.compare_at_price | minus: prd.price %}
+                                    {% assign discount = price_difference | times: 100 | divided_by: prd.compare_at_price %}
+                                    <p>up to {{ discount | round }}% off</p>
+                                </div>
+                            {% endif %}                            
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="error_msg" data-section="bestSeller">
+            <div class="error_msg_inner">
+                <img src="{{ section.settings.event_not_available | img_url: '' }}" alt="error_image">
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name": "as bestseller collection",
+        "settings": [
+           {
+            "type": "text",
+            "id": "astital",
+            "label": "Subtitle"
+        },
+        {
+            "type": "text",
+            "id": "brand_title",
+            "label": "Title"
+        },  
+        {
+            "type": "collection",
+            "id": "bestseller_collection",
+            "label": "Add Collection"
+        },
+        {
+            "type": "header",
+            "content": "Add No Event available Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "event_not_available",
+            "label": "Add Image"
+        },
+        {
+            "type": "header",
+            "content": "Specing Top"
+        },
+        {
+            "type": "range",
+            "id": "padding_top_desk",
+            "label": "Desktop",
+            "min": 0,
+            "step": 5,
+            "default": 50,
+            "max": 100,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding_top_teplop",
+            "label": "Laptop",
+            "min": 0,
+            "step": 5,
+            "default": 50,
+            "max": 100,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding_top_tab",
+            "label": "Tablet",
+            "min": 0,
+            "step": 5,
+            "default": 50,
+            "max": 100,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding_top_mbl",
+            "label": "Mobile",
+            "min": 0,
+            "step": 5,
+            "default": 50,
+            "max": 100,
+            "unit": "px"
+        },
+        {
+            "type": "header",
+            "content": "Specing Bottom"
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom_desk",
+            "label": "Desktop",
+            "min": 0,
+            "step": 5,
+            "default": 50,
+            "max": 100,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom_teplop",
+            "label": "Laptop",
+            "min": 0,
+            "step": 5,
+            "default": 50,
+            "max": 100,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom_tab",
+            "label": "Tablet",
+            "min": 0,
+            "step": 5,
+            "default": 50,
+            "max": 100,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom_mbl",
+            "label": "Mobile",
+            "min": 0,
+            "step": 5,
+            "default": 50,
+            "max": 100,
+            "unit": "px"
+        },
+        {
+            "type": "header",
+            "content": "View Button"
+        },
+        {
+            "type": "text",
+            "id": "view_all_text",
+            "label": "View All Text"
+        },
+        {
+            "type": "textarea",
+            "id": "view_all_icon",
+            "label": "View All Icon"
+        },
+        {
+            "type": "color",
+            "id": "view_all_text_color",
+            "label": "View All Text Color",
+            "default": "#000000"
+        },
+        {
+            "type": "range",
+            "id": "view_all_text_size",
+            "label": "View All Text Font Size",
+            "min": 10,
+            "max": 30,
+            "default": 16,
+            "unit": "px"
+        },
+       {
+            "type": "select",
+            "id": "view_all_text_weight",
+            "label": "View All Text Font Weight",
+            "options": [
+                { "value": "300", "label": "Light" },
+                { "value": "400", "label": "Normal" },
+                { "value": "500", "label": "Medium" },
+                { "value": "600", "label": "Semi-Bold" },
+                { "value": "700", "label": "Bold" }
+            ],
+            "default": "400"
+        }
+        ],
+        "presets": [
+            {
+                "name": "As BestSeller Collection"
+            }
+        ]
+    }
+{% endschema %}

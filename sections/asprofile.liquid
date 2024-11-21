@@ -1,0 +1,126 @@
+<section class="customer_profile_popup" id="profilePopupContainer">
+    <div class="customer_profile_inner" id="profilePopupContainerInner">
+        <div>
+            <div class="profile_box">
+                <div class="profile_box-inner">
+                    <h3>Hey!</h3>
+                    <a href="javascript:void(0)">Edit Profile</a>
+                </div>
+                <div class="profile_box-inner profile_img">
+                    <img src="{{ section.settings.Profile_image | img_url: '1000x1000' }}" 
+                         alt="profile_image">
+                </div>
+            </div>
+            <div class="content_main_block">
+                {% for block in section.blocks %}
+                <div class="profile_content">
+                    <a href="/account">
+                        <div class="profile_content_inner">
+                            <div class="content_box">
+                                <div>{{ block.settings.content_icon }}</div>
+                                <div>
+                                    <h4>{{ block.settings.content_heading }}</h4>
+                                    <p>{{ block.settings.content_txt }}</p>
+                                </div>
+                            </div>
+                            <div class="icon_box">
+                                {% render 'asRightArrow' %}
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="signout-box">
+            <a href="/account/logout" id="customer_logout_link" 
+               class="signout-btn">{{ section.settings.signout-btn }}</a>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const profileOpenBtn = document.querySelector('#profileOpenBtn');
+        const popupContainer = document.querySelector('#profilePopupContainer');
+        const popupContainerInner = document.querySelector('#profilePopupContainerInner');
+        const body = document.querySelector('body');
+
+        if (profileOpenBtn) {
+            profileOpenBtn.addEventListener('click', () => {
+                console.log('Open button clicked');
+                body.classList.add('body-overflow-hidden');
+                popupContainer.style.top = '0';
+                popupContainerInner.style.right = '0';
+            });
+        } else {
+            console.error('Profile Open Button not found.');
+        }
+
+        if (popupContainer) {
+            popupContainer.addEventListener('click', () => {
+                console.log('Popup container clicked');
+                body.classList.remove('body-overflow-hidden');
+                popupContainerInner.style.right = '-100%';
+                setTimeout(() => {
+                    popupContainer.style.top = '-100%';
+                }, 600);
+            });
+        } else {
+            console.error('Popup Container not found.');
+        }
+
+        popupContainerInner.addEventListener('click', (event) => {
+            console.log('Popup inner clicked (stopped propagation).');
+            event.stopPropagation();
+        });
+    });
+</script>
+
+{% schema %}
+{
+    "name": "as profile section",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "Profile_image",
+            "label": "Your Profile Image"
+        },
+        {
+            "type": "text",
+            "id": "signout-btn",
+            "label": "Add Button Text",
+            "default": "Sign Out"
+        }
+    ],
+    "blocks": [
+        {
+            "name": "Profile Content Block",
+            "type": "text",
+            "settings": [
+                {
+                    "type": "html",
+                    "id": "content_icon",
+                    "label": "add Icon Related to Content"
+                },
+                {
+                    "type": "text",
+                    "id": "content_heading",
+                    "label": "Content Heading"
+                },
+                {
+                    "type": "text",
+                    "id": "content_txt",
+                    "label": "Content Text"
+                }
+            ]
+            
+        }
+    ],
+    "presets": [
+        {
+            "name": "as profile section"
+        }
+    ]
+}
+{% endschema %}
