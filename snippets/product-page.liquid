@@ -1352,3 +1352,33 @@
 {% render 'schema',
     product: product
 %}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Select all accordion headers
+        const accordionHeaders = document.querySelectorAll(".asCustomAccrdnHeader");
+
+        accordionHeaders.forEach((header) => {
+            header.addEventListener("click", function () {
+                // Find the associated body
+                const body = this.nextElementSibling;
+
+                if (body) {
+                    if (body.classList.contains("hidden")) {
+                        // Show the body
+                        body.style.display = "block"; // Make it block
+                        setTimeout(() => {
+                            body.classList.remove("hidden"); // Start fade-in
+                        }, 10); // Slight delay to trigger CSS transition
+                    } else {
+                        // Hide the body
+                        body.classList.add("hidden"); // Start fade-out
+                        setTimeout(() => {
+                            body.style.display = "none"; // Completely hide after transition
+                        }, 200); // Match the CSS transition duration
+                    }
+                }
+            });
+        });
+    });
+</script>

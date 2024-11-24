@@ -54,6 +54,7 @@
                     <div class="form-field{% if form.errors contains "first_name" %} form-field--error{% endif %}">
                         <label class="form-label" for="RegisterForm-FirstName">
                             {{ 'customer.register.first_name' | t }}
+                            <em> {{ 'customer.register.required' | t }} </em>
                         </label>
                         <input class="form-input form-input-placeholder{% if form.errors contains "first_name" %} error{% endif %}"
                             type="text"
@@ -62,11 +63,13 @@
                             {% if form.first_name %}value="{{ form.first_name }}"{% endif %}
                             autocomplete="given-name"
                             placeholder=""
+                            required
                         >
                     </div>
                     <div class="form-field{% if form.errors contains "last_name" %} form-field--error{% endif %}">
                         <label class="form-label" for="RegisterForm-LastName">
                             {{ 'customer.register.last_name' | t }}
+                            <em> {{ 'customer.register.required' | t }} </em>
                         </label>      
                         <input class="form-input form-input-placeholder{% if form.errors contains "last_name" %} error{% endif %}"
                             type="text"
@@ -75,11 +78,45 @@
                             {% if form.last_name %}value="{{ form.last_name }}"{% endif %}
                             autocomplete="family-name"
                             placeholder=""
+                            required
                         >
+                    </div>
+                    <div class="form-field{% if form.errors contains "gender" %} form-field--error{% endif %}">
+                        <label class="form-label" for="RegisterForm-Gender">
+                            {{ 'customer.register.gender' | t }}
+                            <em> {{ 'customer.register.required' | t }} </em>
+                        </label>
+                        <select
+                            class="form-input form-input-placeholder{% if form.errors contains "gender" %} error{% endif %}"
+                            id="RegisterForm-Gender"
+                            name="customer[Gender]"
+                            {% if form.gender %}value="{{ form.gender }}"{% endif %}
+                            required
+                        >
+                            <option value="" disabled> {{ 'customer.addresses.company' | t }} </option>
+                            <option value="male"> Male </option>
+                            <option value="female"> Female </option>
+                            <option value="other"> Other </option>
+                        </select>
+                    </div>
+                    <div class="form-field{% if form.errors contains "city" %} form-field--error{% endif %}">
+                        <label class="form-label" for="RegisterForm-City">
+                            {{ 'customer.register.city' | t }}
+                            <em> {{ 'customer.register.required' | t }} </em>
+                        </label>
+                        <select
+                            class="form-input form-input-placeholder{% if form.errors contains "city" %} error{% endif %}"
+                            id="RegisterForm-City"
+                            name="customer[city]"
+                            {% if form.city %}value="{{ form.city }}"{% endif %}
+                            required
+                        >
+                        </select>
                     </div>
                     <div class="form-field{% if form.errors contains "phone_number" %} form-field--error{% endif %}">
                         <label class="form-label" for="RegisterForm-PhoneNumber">
                             {{ 'customer.register.phone_number' | t }}
+                            <em> {{ 'customer.register.required' | t }} </em>
                         </label>
                         <input class="form-input form-input-placeholder{% if form.errors contains "phone_number" %} error{% endif %}"
                             type="number"
@@ -88,6 +125,7 @@
                             {% if form.phone_number %}value="{{ form.phone_number }}"{% endif %}
                             autocomplete="family-name"
                             placeholder=""
+                            required
                         >
                     </div>
                     <div class="form-field{% if form.errors contains "email" %} form-field--error{% endif %}">
@@ -129,11 +167,6 @@
                             placeholder=""
                             required
                         >
-                    </div>
-                    <div class="accepts-marketing">
-                        <input type="hidden" name="customer[accepts_marketing]" value="false" />
-                        <input type="checkbox" name="customer[accepts_marketing]" id="accepts-marketing"/>
-                        <label class="form-label--checkbox" for="accepts-marketing">{{ 'customer.register.subscribe' | t }}</label>
                     </div>
                     <div class="form-actions">
                         {% if settings.enable_button_1_border_outside %}

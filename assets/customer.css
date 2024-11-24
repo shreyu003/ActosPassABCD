@@ -489,6 +489,15 @@
         height: 0.2em;
         width: 1em;
     }
+    .address-content div{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .address-content div h3{
+      margin: 0;
+      font-size: 16px;
+    }
 
     .address-content{
         margin-bottom: 1.5rem;
@@ -521,10 +530,6 @@
         text-align: left;
     }
 
-    .address-form .form-field + .form-field{
-        margin-top: 12px;
-    }
-
     .address-form .form-field input,
     .address-form .form-field .select__select {
       max-width: 450px;
@@ -539,12 +544,10 @@
     }
 
     .address-form .form-actions{
-        margin-top: 20px;
-        max-width: 450px;
-    }
-
-    .address-form .button + .button{
-        margin-top: 15px;
+      margin: 40px auto 0;
+      max-width: 50%;
+      display: flex;
+      gap: 40px;
     }
 
     .addresses li,
@@ -555,18 +558,18 @@
     }
 
     .addresses li address {
-      border: 1px solid #cecece;
-      padding: 10px 15px 15px 15px;
-      min-height: 200px;
+      padding: 15px;
       font-style: normal;
       font-size: var(--font-body-size);
+      text-align: left;
     }
 
     .addresses li address .acc-name {
       text-transform: uppercase;
-      font-weight: var(--font-weight-semibold);
-      font-size: var(--font-body-size);
-      margin-bottom: 7px;
+      font-weight: 600;
+      font-size: 20px;
+      margin: 0 !important;
+      padding-bottom: 10px;
     }
 
     .addresses li address .acc-name .default,
@@ -1200,7 +1203,7 @@
   }
   .addresses li,
   .account-listItem {
-    width: 25%;
+    width: 35%;
     padding: 0 15px;
   }
   .addresses li address {

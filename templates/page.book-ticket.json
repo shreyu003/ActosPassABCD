@@ -12,14 +12,11 @@
     "main": {
       "type": "main-page",
       "disabled": true,
-      "settings": {
-      }
+      "settings": {}
     },
     "as_book_ticket_Q6PE4x": {
       "type": "asBookTicket",
-      "settings": {
-        "select_date_time": "Choose date and time"
-      }
+      "settings": {}
     }
   },
   "order": [

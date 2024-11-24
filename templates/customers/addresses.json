@@ -11,7 +11,14 @@
   "sections": {
     "main": {
       "type": "main-addresses",
+      "custom_css": [
+        "h1 {font-size: 32px; text-transform: capitalize; font-weight: 600;}",
+        ".address-form--wrapper {display: grid; grid-template-columns: 1fr 1fr; gap: 20px 40px;}",
+        ".form-field :where(input, select) {max-width: 100% !important;}"
+      ],
       "settings": {
+        "container": "1170",
+        "padding_full_width": 0
       }
     }
   },

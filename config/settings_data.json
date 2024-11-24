@@ -511,7 +511,7 @@
     "blocks": {
       "6892056713484685256": {
         "type": "shopify://apps/otpless-whatsapp-login/blocks/app-embed/162dde26-f1cf-4a86-b869-e45e8c58e28e",
-        "disabled": false,
+        "disabled": true,
         "settings": {}
       }
     }

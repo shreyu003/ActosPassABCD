@@ -140,6 +140,12 @@
         "padding-bottom-tab": 50,
         "padding-bottom-mbl": 50
       }
+    },
+    "as_custom_register_pwgjaE": {
+      "type": "asCustomRegister",
+      "settings": {
+        "as-register-txt": "Register"
+      }
     }
   },
   "order": [
@@ -147,6 +153,7 @@
     "as_image_banner_b38ypd",
     "rich_text_VjGPDm",
     "as_dtcm_form_NjtwdK",
-    "as_icon_with_text_9xjjQh"
+    "as_icon_with_text_9xjjQh",
+    "as_custom_register_pwgjaE"
   ]
 }

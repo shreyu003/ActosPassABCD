@@ -118,7 +118,7 @@
                                     {% else %}
                                         {% assign is_contained = false %}
                                     {% endif %}
-                                    <a href="{{ routes.account_login_url }}" class="header__icon header__icon--account link link--text"{% if is_contained %} data-open-auth-sidebar  {% endif %} >
+                                    <a href="{{ routes.account_login_url }}" class="header__icon header__icon--account link link--text"{% if is_contained %} data-open-auth-sidebar  {% endif %} style="display: flex;">
                                         {%- if customer and customer.has_avatar? -%}
                                             <account-icon>
                                                 {{ customer | avatar }}

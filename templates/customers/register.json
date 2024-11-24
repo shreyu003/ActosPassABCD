@@ -11,8 +11,11 @@
   "sections": {
     "main": {
       "type": "main-register",
+      "custom_css": [
+        "h1{font-size: 32px; font-weight: 600; text-transform: capitalize;}"
+      ],
       "settings": {
-        "container": "container",
+        "container": "1170",
         "padding_full_width": 65
       }
     }

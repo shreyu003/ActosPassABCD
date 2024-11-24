@@ -9,18 +9,22 @@
  */
 {
   "sections": {
+    "main_addresses_FkjEBT": {
+      "type": "main-addresses",
+      "custom_css": [
+        "h1 {text-transform: capitalize; font-size: 32px; font-weight: 600;}",
+        ".address-form--wrapper {display: grid; grid-template-columns: 1fr 1fr; gap: 20px 40px;}",
+        ".form-field :where(input, select) {max-width: 100%;}"
+      ],
+      "settings": {
+        "container": "1170",
+        "padding_full_width": 0
+      }
+    },
     "main": {
       "type": "main-account",
       "disabled": true,
-      "settings": {
-      }
-    },
-    "main_addresses_FkjEBT": {
-      "type": "main-addresses",
-      "settings": {
-        "container": "container",
-        "padding_full_width": 0
-      }
+      "settings": {}
     },
     "custom_liquid_7mVHTR": {
       "type": "custom-liquid",

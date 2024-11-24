@@ -113,8 +113,8 @@
 }
 
 .header-single-line .header__icon--account svg {
-	width: 30px;
-	height: 30px;
+	width: 40px;
+	height: 40px;
 	display: inline-block;
 }
 
@@ -130,9 +130,9 @@
 	text-transform: var(--header-text-transform);
 	font-size: max(calc(var(--font-body-size) - 2px), 14px);
 	font-weight: var(--font-weight-normal);
-	display: block !important;
 	height: auto;
 	margin-top: 10px;
+    display: none;
 }
 
 .header-single-line .header__icon+.header__icon {
