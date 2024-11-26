@@ -1,251 +1,413 @@
 {% comment %}
-    This template will be automatically generated for you if the file doesn't exist,
-    but where's the fun in having no control? Define your layout below.
+This template will be automatically generated for you if the file doesn't exist,
+but where's the fun in having no control? Define your layout below.
 
-    The 'layout settings.customer_layout' line is inserted at the top of every customer account template.
-    Your theme's settings determine to use the 'default' or 'theme' customer templates.
-    More info:
-    - http://www.tetchi.ca/shopify-theme-from-scratch-part-11/
+The 'layout settings.customer_layout' line is inserted at the top of every customer account template.
+Your theme's settings determine to use the 'default' or 'theme' customer templates.
+More info:
+- http://www.tetchi.ca/shopify-theme-from-scratch-part-11/
 {% endcomment %}
 
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 {%- liquid
-    assign container = section.settings.container
-    assign padding_full_width = section.settings.padding_full_width
+assign container = section.settings.container
+assign padding_full_width = section.settings.padding_full_width
 -%}
 
 <div class="account-page register-page section-block-{{section.id}}">
-  <div class="{% if container == '1170' %}container-1170{% elsif container == '1770' %}container-1770{% elsif container == 'fullwidth'%}container-full{% else %}container{% endif %}">
-    <div class="halo-page-header">
-        {% render 'breadcrumb' %}
-        <h1 class="page-header">{{ 'customer.register.title' | t }}</h1>
-    </div>
-    <div class="halo-page-content">
-        <div class="login-item">
-            <div class="halo-page-wrapper">
-                <div class="login-text">
-                    {{ 'customer.register.text' | t }}
-                </div>
-                {%- form 'create_customer', class: 'create-customer-form' -%}
+    <div
+        class="{% if container == '1170' %}container-1170{% elsif container == '1770' %}container-1770{% elsif container == 'fullwidth'%}container-full{% else %}container{% endif %}">
+        <div class="halo-page-header">
+            {% render 'breadcrumb' %}
+        </div>
+        <div class="halo-page-content">
+            <h1 class="page-header">{{ 'customer.register.title' | t }}</h1>
+            <div class="login-item">
+                <div class="halo-page-wrapper">
+                    <div class="login-text">
+                        {{ 'customer.register.text' | t }}
+                    </div>
+                    {%- form 'create_customer', class: 'create-customer-form' -%}
                     {%- if form.errors -%}
-                        <div class="form-message">
-                            <div class="alertBox alertBox--error">
-                                <div class="alertBox-message">
-                                    <ul>
-                                        {%- for field in form.errors -%}
-                                            <li>
-                                                {%- if field == 'form' -%}
-                                                    {{ form.errors.messages[field] }}
-                                                {%- else -%}
-                                                  <a href="#RegisterForm-{{ field }}" class="link link-underline">
-                                                    <span class="text">
-                                                        {{ form.errors.translated_fields[field] | capitalize }}
-                                                        {{ form.errors.messages[field] }}
-                                                    </span>
-                                                  </a>
-                                                {%- endif -%}
-                                            </li>
-                                        {%- endfor -%}
-                                    </ul>
-                                </div>
+                    <div class="form-message">
+                        <div class="alertBox alertBox--error">
+                            <div class="alertBox-message">
+                                <ul>
+                                    {%- for field in form.errors -%}
+                                    <li>
+                                        {%- if field == 'form' -%}
+                                        {{ form.errors.messages[field] }}
+                                        {%- else -%}
+                                        <a href="#RegisterForm-{{ field }}" class="link link-underline">
+                                            <span class="text">
+                                                {{ form.errors.translated_fields[field] | capitalize }}
+                                                {{ form.errors.messages[field] }}
+                                            </span>
+                                        </a>
+                                        {%- endif -%}
+                                    </li>
+                                    {%- endfor -%}
+                                </ul>
                             </div>
                         </div>
+                    </div>
                     {% endif %}
-                    <div class="form-field{% if form.errors contains "first_name" %} form-field--error{% endif %}">
+                    <div class="form-field{% if form.errors contains " first_name" %} form-field--error{% endif %}">
                         <label class="form-label" for="RegisterForm-FirstName">
                             {{ 'customer.register.first_name' | t }}
                             <em> {{ 'customer.register.required' | t }} </em>
                         </label>
-                        <input class="form-input form-input-placeholder{% if form.errors contains "first_name" %} error{% endif %}"
-                            type="text"
-                            name="customer[first_name]"
-                            id="RegisterForm-FirstName"
-                            {% if form.first_name %}value="{{ form.first_name }}"{% endif %}
-                            autocomplete="given-name"
-                            placeholder=""
-                            required
-                        >
+                        <input class="form-input form-input-placeholder{% if form.errors contains " first_name" %}
+                            error{% endif %}" type="text" name="customer[first_name]" id="RegisterForm-FirstName" {% if
+                            form.first_name %}value="{{ form.first_name }}" {% endif %} autocomplete="given-name"
+                            placeholder="" required>
                     </div>
-                    <div class="form-field{% if form.errors contains "last_name" %} form-field--error{% endif %}">
+                    <div class="form-field{% if form.errors contains " last_name" %} form-field--error{% endif %}">
                         <label class="form-label" for="RegisterForm-LastName">
                             {{ 'customer.register.last_name' | t }}
                             <em> {{ 'customer.register.required' | t }} </em>
-                        </label>      
-                        <input class="form-input form-input-placeholder{% if form.errors contains "last_name" %} error{% endif %}"
-                            type="text"
-                            name="customer[last_name]"
-                            id="RegisterForm-LastName"
-                            {% if form.last_name %}value="{{ form.last_name }}"{% endif %}
-                            autocomplete="family-name"
-                            placeholder=""
-                            required
-                        >
+                        </label>
+                        <input class="form-input form-input-placeholder{% if form.errors contains " last_name" %}
+                            error{% endif %}" type="text" name="customer[last_name]" id="RegisterForm-LastName" {% if
+                            form.last_name %}value="{{ form.last_name }}" {% endif %} autocomplete="family-name"
+                            placeholder="" required>
                     </div>
-                    <div class="form-field{% if form.errors contains "gender" %} form-field--error{% endif %}">
+                    <div class="form-field{% if form.errors contains " gender" %} form-field--error{% endif %}">
                         <label class="form-label" for="RegisterForm-Gender">
                             {{ 'customer.register.gender' | t }}
                             <em> {{ 'customer.register.required' | t }} </em>
                         </label>
-                        <select
-                            class="form-input form-input-placeholder{% if form.errors contains "gender" %} error{% endif %}"
-                            id="RegisterForm-Gender"
-                            name="customer[Gender]"
-                            {% if form.gender %}value="{{ form.gender }}"{% endif %}
-                            required
-                        >
+                        <select class="form-input form-input-placeholder{% if form.errors contains " gender" %} error{%
+                            endif %}" id="RegisterForm-Gender" name="customer[Gender]" {% if form.gender
+                            %}value="{{ form.gender }}" {% endif %} required>
                             <option value="" disabled> {{ 'customer.addresses.company' | t }} </option>
                             <option value="male"> Male </option>
                             <option value="female"> Female </option>
                             <option value="other"> Other </option>
                         </select>
                     </div>
-                    <div class="form-field{% if form.errors contains "city" %} form-field--error{% endif %}">
+                    <div class="form-field{% if form.errors contains " city" %} form-field--error{% endif %}">
                         <label class="form-label" for="RegisterForm-City">
                             {{ 'customer.register.city' | t }}
                             <em> {{ 'customer.register.required' | t }} </em>
                         </label>
-                        <select
-                            class="form-input form-input-placeholder{% if form.errors contains "city" %} error{% endif %}"
-                            id="RegisterForm-City"
-                            name="customer[city]"
-                            {% if form.city %}value="{{ form.city }}"{% endif %}
-                            required
-                        >
+                        <select class="form-input form-input-placeholder{% if form.errors contains " city" %} error{%
+                            endif %}" id="RegisterForm-City" name="customer[city]" {% if form.city
+                            %}value="{{ form.city }}" {% endif %} required>
                         </select>
                     </div>
-                    <div class="form-field{% if form.errors contains "phone_number" %} form-field--error{% endif %}">
+                    <div class="form-field{% if form.errors contains " phone_number" %} form-field--error{% endif %}">
                         <label class="form-label" for="RegisterForm-PhoneNumber">
                             {{ 'customer.register.phone_number' | t }}
                             <em> {{ 'customer.register.required' | t }} </em>
                         </label>
-                        <input class="form-input form-input-placeholder{% if form.errors contains "phone_number" %} error{% endif %}"
-                            type="number"
-                            name="customer[phone_number]"
-                            id="RegisterForm-PhoneNumber"
-                            {% if form.phone_number %}value="{{ form.phone_number }}"{% endif %}
-                            autocomplete="family-name"
-                            placeholder=""
-                            required
-                        >
+                        <input class="form-input form-input-placeholder{% if form.errors contains " phone_number" %} error{% endif %}" type="number" name="customer[phone_number]" id="RegisterForm-PhoneNumber" {% if form.phone_number %}value="{{ form.phone_number }}" {% endif %} placeholder="" required>
                     </div>
-                    <div class="form-field{% if form.errors contains "email" %} form-field--error{% endif %}">
-                        <label class="form-label" for="RegisterForm-email">
-                            {{ 'customer.register.you_email' | t }}
-                            <em>*</em>
-                        </label>      
-                        <input class="form-input form-input-placeholder{% if form.errors contains "email" %} error{% endif %}"
-                            type="email"
-                            name="customer[email]"
-                            id="RegisterForm-email"
-                            {% if form.email %} value="{{ form.email }}"{% endif %}
-                            spellcheck="false"
-                            autocapitalize="off"
-                            autocomplete="email"
-                            aria-required="true"
-                            {% if form.errors contains 'email' %}
-                                aria-invalid="true"
-                                aria-describedby="RegisterForm-email-error"
+
+                    <button id="send-otp" class="otp_btn-group" type="button">Send OTP</button>
+
+                    <!-- OTP Input -->
+                    <div id="otp-input" class="otp-input-box" style="display: none;">
+                        <label for="otp">Enter OTP</label>
+                        <div id="otp-container">
+                            <input type="text" id="otp-1" maxlength="1" class="otp-field" />
+                            <input type="text" id="otp-2" maxlength="1" class="otp-field" />
+                            <input type="text" id="otp-3" maxlength="1" class="otp-field" />
+                            <input type="text" id="otp-4" maxlength="1" class="otp-field" />
+                        </div>
+                        <button id="otp-submit" class="otp_btn-group" type="button">Verify OTP</button>
+                    </div>
+
+                    <!-- Email and Password Fields -->
+                    <div id="showIDPassword" style="display: none;">
+                        <div class="form-field{% if form.errors contains " email" %} form-field--error{% endif %}">
+                            <label class="form-label" for="RegisterForm-email">
+                                {{ 'customer.register.you_email' | t }}
+                                <em>*</em>
+                            </label>
+                            <input class="form-input form-input-placeholder{% if form.errors contains " email" %}
+                                error{% endif %}" type="email" name="customer[email]" id="RegisterForm-email" {% if
+                                form.email %} value="{{ form.email }}" {% endif %} spellcheck="false"
+                                autocapitalize="off" autocomplete="email" aria-required="true" {% if form.errors
+                                contains 'email' %} aria-invalid="true" aria-describedby="RegisterForm-email-error" {%
+                                endif %} placeholder="" required>
+                        </div>
+                        <div class="form-field{% if form.errors contains " password" %} form-field--error{% endif %}">
+                            <label class="form-label" for="password">
+                                {{ 'customer.register.you_password' | t }}
+                                <em>*</em>
+                            </label>
+                            <input class="form-input form-input-placeholder{% if form.errors contains " password" %}
+                                error{% endif %}" type="password" name="customer[password]" id="RegisterForm-password"
+                                aria-required="true" {% if form.errors contains 'password' %} aria-invalid="true"
+                                aria-describedby="RegisterForm-password-error" {% endif %} placeholder="" required>
+                        </div>
+                        <div class="form-actions">
+                            {% if settings.enable_button_1_border_outside %}
+                            <button class="button button--primary"><span>{{ 'customer.register.submit' | t
+                                    }}</span></button>
+                            {% else %}
+                            <input type="submit" value="{{ 'customer.register.submit' | t }}"
+                                class="button button--primary">
                             {% endif %}
-                            placeholder=""
-                            required
-                        >
+                        </div>
                     </div>
-                    <div class="form-field{% if form.errors contains "password" %} form-field--error{% endif %}">
-                        <label class="form-label" for="password">
-                            {{ 'customer.register.you_password' | t }}
-                            <em>*</em>
-                        </label>      
-                        <input class="form-input form-input-placeholder{% if form.errors contains "password" %} error{% endif %}"
-                            type="password"
-                            name="customer[password]"
-                            id="RegisterForm-password"
-                            aria-required="true"
-                            {% if form.errors contains 'password' %}
-                                aria-invalid="true"
-                                aria-describedby="RegisterForm-password-error"
-                            {% endif %}
-                            placeholder=""
-                            required
-                        >
-                    </div>
-                    <div class="form-actions">
-                        {% if settings.enable_button_1_border_outside %}
-                            <button class="button button--primary"><span>{{ 'customer.register.submit' | t }}</span></button>
-                        {% else %}
-                            <input type="submit" value="{{ 'customer.register.submit' | t }}" class="button button--primary">
-                        {% endif %}
-                    </div>
-                {%- endform -%}
+                    {%- endform -%}
+                </div>
             </div>
         </div>
     </div>
-  </div>
 </div>
 
+<script>
+    // Populate city dropdown
+    fetch("https://actopassapidev.actoscript.com/api/City")
+        .then(response => response.json())
+        .then(data => {
+            const cityDropdown = document.getElementById("RegisterForm-City");
+            cityDropdown.innerHTML = '<option value="">Select Your City</option>';
+            data.forEach(city => {
+                const option = document.createElement("option");
+                option.value = city.CityName.toLowerCase();
+                option.textContent = city.CityName;
+                cityDropdown.appendChild(option);
+            });
+        })
+        .catch(error => console.error("Error fetching cities:", error));
+
+    let otpCheck = null; // Store OTP for verification
+
+    // Handle Send OTP
+    document.getElementById("send-otp").addEventListener("click", async function () {
+        const phoneNumber = document.getElementById("RegisterForm-PhoneNumber").value.trim();
+
+        if (!phoneNumber) {
+            alert("Please enter your phone number.");
+            return;
+        }
+
+        try {
+            const response = await fetch("https://actopassapidev.actoscript.com/api/Mobile_Login/SearchMobileNo", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ MobileNo: phoneNumber }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                if (data.response === "0" && data.Typeresponse === "Success") {
+                    // Mobile number exists
+                    alert("Mobile number already exists. Redirecting to login page.");
+                    window.location.href = "/account/login"; // Replace with your login page URL
+                } else if (data.otp) {
+                    // Mobile number does not exist OTP generated
+                    document.getElementById("otp-input").style.display = "block";
+                    window.otpCheck = data.otp; // Store the OTP globally for verification
+                    console.log("Generated OTP:", data.otp); // For testing; remove in production
+                } else {
+                    alert("Failed to send OTP. Please try again.");
+                }
+            } else {
+                alert("Failed to process your request. Please try again.");
+            }
+        } catch (error) {
+            console.error("Error sending OTP:", error);
+            alert("An error occurred. Please try again.");
+        }
+    });
+
+    // Auto-focus and move to the next OTP field
+    document.querySelectorAll(".otp-field").forEach((field, index, fields) => {
+        field.addEventListener("input", function () {
+            const value = field.value;
+
+            // Move to the next field if input is valid
+            if (value.length === 1 && index < fields.length - 1) {
+                fields[index + 1].focus();
+            }
+        });
+
+        // Handle backspace to move focus to the previous field
+        field.addEventListener("keydown", function (e) {
+            if (e.key === "Backspace" && field.value === "" && index > 0) {
+                fields[index - 1].focus();
+            }
+        });
+    });
+
+    // Handle Verify OTP
+    document.getElementById("otp-submit").addEventListener("click", function () {
+        const otpFields = document.querySelectorAll(".otp-field");
+        let enteredOtp = "";
+
+        // Concatenate the values of all OTP fields
+        otpFields.forEach(field => {
+            enteredOtp += field.value.trim();
+        });
+
+        if (enteredOtp === String(window.otpCheck)) {
+            document.getElementById("showIDPassword").style.display = "block";
+        } else {
+            alert("Invalid OTP. Please try again.");
+        }
+    });
+
+</script>
+
 <style>
-  @media (min-width: 1025px) {
-    {%- if container == 'fullwidth' -%}
-        .section-block-{{section.id}} .container-full {padding-left: {{ padding_full_width | append: 'px' }};padding-right: {{ padding_full_width | append: 'px' }}}
-    {%- endif -%}
-  }
-  @media (max-width: 1024px) {
-    {%- if container == 'fullwidth' -%}
-        .section-block-{{section.id}} .container-full {overflow: hidden;}
-        .section-block-{{section.id}} .container-full .halo-page-header {padding-left: 25px;padding-right: 15px}
-        .section-block-{{section.id}} .container-full .halo-page-content {padding-left: 15px;padding-right: 15px}
-    {%- endif -%}
-  }
-  @media (max-width: 551px) {
-    {%- if container == 'fullwidth' -%}
-      .section-block-{{section.id}} .container-full .halo-page-header {padding-left: 0;padding-right: 0}
-        .section-block-{{section.id}} .container-full .halo-page-content {padding-left: 10px;padding-right: 10px}
-    {%- endif -%}
-  }
+    @media (min-width: 1025px) {
+            {
+            %- if container=='fullwidth' -%
+        }
+
+        .section-block- {
+                {
+                section.id
+            }
+        }
+
+        .container-full {
+            padding-left: {
+                    {
+                    padding_full_width | append: 'px'
+                }
+            }
+
+            ;
+
+            padding-right: {
+                    {
+                    padding_full_width | append: 'px'
+                }
+            }
+        }
+
+            {
+            %- endif -%
+        }
+    }
+
+    @media (max-width: 1024px) {
+            {
+            %- if container=='fullwidth' -%
+        }
+
+        .section-block- {
+                {
+                section.id
+            }
+        }
+
+        .container-full {
+            overflow: hidden;
+        }
+
+        .section-block- {
+                {
+                section.id
+            }
+        }
+
+        .container-full .halo-page-header {
+            padding-left: 25px;
+            padding-right: 15px
+        }
+
+        .section-block- {
+                {
+                section.id
+            }
+        }
+
+        .container-full .halo-page-content {
+            padding-left: 15px;
+            padding-right: 15px
+        }
+
+            {
+            %- endif -%
+        }
+    }
+
+    @media (max-width: 551px) {
+            {
+            %- if container=='fullwidth' -%
+        }
+
+        .section-block- {
+                {
+                section.id
+            }
+        }
+
+        .container-full .halo-page-header {
+            padding-left: 0;
+            padding-right: 0
+        }
+
+        .section-block- {
+                {
+                section.id
+            }
+        }
+
+        .container-full .halo-page-content {
+            padding-left: 10px;
+            padding-right: 10px
+        }
+
+            {
+            %- endif -%
+        }
+    }
 </style>
 
 {% schema %}
 {
-  "name": "Register",
-  "settings": [
-  {
-      "type": "header",
-      "content": "t:settings_schema.general.name"
-  },
-  {
-      "type": "select",
-      "id": "container",
-      "label": "t:sections.layout.container.option",
-      "default": "container",
-      "options": [
-          {
-              "value": "container",
-              "label": "t:sections.layout.container.option1"
-          },
-          {
-              "value": "1170",
-              "label": "t:sections.layout.container.option4"
-          },
-          {
-              "value": "1770",
-              "label": "t:sections.layout.container.option3"
-          },
-          {
-              "value": "fullwidth",
-              "label": "t:sections.layout.container.option2"
-          }
-      ]
-  },
-  {
-      "type": "range",
-      "id": "padding_full_width",
-      "label": "t:sections.layout.container.padding_full_width",
-      "min": 0,
-      "max": 100,
-      "step": 5,
-      "unit": "t:sections.layout.fontsize.fontsize_title.unit",
-      "default": 0,
-      "info": "t:sections.layout.container.info_full_width"
-  }
-  ]
+"name": "Register",
+"settings": [
+{
+"type": "header",
+"content": "t:settings_schema.general.name"
+},
+{
+"type": "select",
+"id": "container",
+"label": "t:sections.layout.container.option",
+"default": "container",
+"options": [
+{
+"value": "container",
+"label": "t:sections.layout.container.option1"
+},
+{
+"value": "1170",
+"label": "t:sections.layout.container.option4"
+},
+{
+"value": "1770",
+"label": "t:sections.layout.container.option3"
+},
+{
+"value": "fullwidth",
+"label": "t:sections.layout.container.option2"
+}
+]
+},
+{
+"type": "range",
+"id": "padding_full_width",
+"label": "t:sections.layout.container.padding_full_width",
+"min": 0,
+"max": 100,
+"step": 5,
+"unit": "t:sections.layout.fontsize.fontsize_title.unit",
+"default": 0,
+"info": "t:sections.layout.container.info_full_width"
+}
+]
 }
 {% endschema %}

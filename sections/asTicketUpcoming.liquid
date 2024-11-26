@@ -28,6 +28,9 @@
         <div class="upcoming_eventgrid_main">
             <h2 class="event-main-heading">{{ section.settings.page_heading1 }}</h2>
             <div class="event_ticket_grid" id="eventTicketGridUpcoming"></div>
+            <div class="event_not_found" id="upcomingEventNotFound" style="display: none; text-align: center;">
+                <img src="{{ section.settings.upcoming-event-not-found | img_url: '1000x1000' }}" alt="Upcomig Event Not Found">
+            </div>
             <div id="eventTicketUpcoming" class="event-ticket-popup" style="display: none;">
                 <div class="event-popup-wrapper">
                     <button class="event_popup_close_btn" onclick="hidePopup()"> {% render 'asPopUpCloseSign' %} </button>
@@ -38,6 +41,9 @@
         <div class="past_eventgrid_main">
             <h2 class="event-main-heading">{{ section.settings.page_heading2 }}</h2>
             <div class="event_ticket_grid" id="eventTicketGridPast"></div>
+            <div class="event_not_found" id="historyEventNotFound" style="display: none; text-align: center;">
+                <img src="{{ section.settings.history-event-not-found | img_url: '1000x1000' }}" alt="History Event Not Found">
+            </div>
             <div id="eventTicketPast" class="event-ticket-popup" style="display: none;">
                 <div class="event-popup-wrapper">
                     <button class="event_popup_close_btn" onclick="hidePopup()"> {% render 'asPopUpCloseSign' %} </button>
@@ -75,7 +81,15 @@
                 data.forEach((ticket) => {
                     const ticketDiv = document.createElement("div");
                     ticketDiv.classList.add("as_ticket-item");
+
+                    const isNotAvailable = ticket.BookTicketid === 0 && ticket.IsDelete === 1 && ticket.SubDetails[0]?.Expired === "Yes";
+
                     ticketDiv.innerHTML = `
+                            <div class="event_not_available" style="display: ${isNotAvailable ? 'block' : 'none'};">
+                                <div class="event_not_available-wrapper">
+                                    <svg fill="#000000" viewBox="0 0 24 24" id="full-cross-circle-alt" data-name="Line Color" xmlns="http://www.w3.org/2000/svg" class="icon line-color" transform="rotate(90)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><line id="secondary" x1="18.15" y1="5.85" x2="5.85" y2="18.15" style="fill: none; stroke: #ad0000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></line><circle id="primary" cx="12" cy="12" r="9" style="fill: none; stroke: #ad0000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></circle></g></svg>
+                                </div>
+                            </div>
                             <div class="as_event_image">
                                 <img src="${ticket.EventMainImage}" alt="${ticket.EventName} Image" />
                             </div>
@@ -104,7 +118,7 @@
                     });
                 });
             } else {
-                ticketList.innerHTML = "<p>No upcoming tickets found.</p>";
+                document.getElementById("upcomingEventNotFound").style.display = "block";
             }
         })
         .catch(error => {
@@ -206,7 +220,15 @@
                 data.forEach((ticket) => {
                     const ticketDiv = document.createElement("div");
                     ticketDiv.classList.add("as_ticket-item");
+
+                    const isNotAvailable = ticket.BookTicketid === 0 && ticket.IsDelete === 1 && ticket.SubDetails[0]?.Expired === "Yes";
+
                     ticketDiv.innerHTML = `
+                            <div class="event_not_available" style="display: ${isNotAvailable ? 'block' : 'none'};">
+                                <div class="event_not_available-wrapper">
+                                    <svg fill="#000000" viewBox="0 0 24 24" id="full-cross-circle-alt" data-name="Line Color" xmlns="http://www.w3.org/2000/svg" class="icon line-color" transform="rotate(90)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><line id="secondary" x1="18.15" y1="5.85" x2="5.85" y2="18.15" style="fill: none; stroke: #ad0000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></line><circle id="primary" cx="12" cy="12" r="9" style="fill: none; stroke: #ad0000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></circle></g></svg>
+                                </div>
+                            </div>
                             <div class="as_event_image">
                                 <img src="${ticket.EventMainImage}" alt="${ticket.EventName} Image" />
                             </div>
@@ -235,12 +257,12 @@
                     });
                 });
             } else {
-                ticketList.innerHTML = "<p>No upcoming tickets found.</p>";
+                document.getElementById("historyEventNotFound").style.display = "block";
             }
         })
         .catch(error => {
             console.error("There was a problem with the fetch operation:", error);
-            document.getElementById("eventTicketGridUpcoming").innerHTML = "<p>Error fetching tickets. Please try again later.</p>";
+            document.getElementById("eventTicketGridPast").innerHTML = "<p>Error fetching tickets. Please try again later.</p>";
         });
 
 
@@ -426,10 +448,20 @@
                 "default": "Upcoming Events"
             },
             {
+                "type": "image_picker",
+                "id": "upcoming-event-not-found",
+                "label": "Add Upcoming Event Not Found Image"
+            },
+            {
                 "type": "text",
                 "id": "page_heading2",
                 "label": "Add Heading 2",
                 "default": "History Events"
+            },
+            {
+                "type": "image_picker",
+                "id": "history-event-not-found",
+                "label": "Add History Event Not Found Image"
             },
             {
                 "type": "text",

@@ -628,9 +628,16 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="locationgmap">
-                                    {{ block.settings.loaction-map }}
-                                </div>    
+                                <div class="locationgmap"> 
+                                    <iframe 
+                                        src="{{ product.metafields.custom.location_map }}" 
+                                        width="100%" 
+                                        height="100%" 
+                                        style="border:0;" 
+                                        allowfullscreen="" 
+                                        loading="lazy">
+                                    </iframe>
+                                </div> 
                             </div>
                         {% when 'with-actopass-small' %}
                             <div class="why_actopass_box as-xxl-none as-md-block">

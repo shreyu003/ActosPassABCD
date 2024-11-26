@@ -18,9 +18,11 @@
                     {%- case block.type -%}
                         {%-  when 'menu' -%}
                             <div class="header-mobile--icon item__mobile--hamburger" style="--i-color: {{ block.settings.color }};">
-                                <button type="button" class="mobileMenu-toggle" data-mobile-menu aria-label="menu"><span class="mobileMenu-toggle__Icon"></span></button>
+                                <button type="button" class="mobileMenu-toggle" data-mobile-menu aria-label="menu"><span class="mobileMenu-toggle__Icon">
+
+                                </span></button>
                             </div>
-                            <style>.nav-menu-tab{background: {{ block.settings.menu_tab_bg }};}</style>
+                            <style>.nav-menu-tab{background: #000;}</style>
                         {%-  when 'search' -%}
                             <details-modal class="header__iconItem header__search" style="--i-color: {{ block.settings.color }}">
                                 <details>

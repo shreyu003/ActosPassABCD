@@ -122,7 +122,6 @@
                                                     <input class="form-input form-input-placeholder" type="tel" id="AddressPhoneNew" name="address[phone]" value="{{ form.phone }}" autocomplete="tel" placeholder="{{ 'customer.addresses.phone' | t }}">
                                                 </div>
                                                 <div class="form-actions">
-                                                    <button class="button button--primary">{{ 'customer.addresses.add' | t }}</button>
                                                     <button class="button button--secondary" type="reset">{{ 'customer.addresses.cancel' | t }}</button>
                                                 </div>
                                             </div>
@@ -225,7 +224,7 @@
                                                 <label class="form-label" for="AddressAddress1_{{ form.id }}">
                                                     {{ 'customer.addresses.address1' | t }}
                                                 </label>
-                                                <input class="form-input form-input-placeholder" type="date" id="AddressAddress1_{{ form.id }}" name="address[address1]" value="{{ form.address1 }}" autocomplete="address-line1" placeholder="{{ 'customer.addresses.address1' | t }}">
+                                                <input class="form-input form-input-placeholder as-date-design" type="date" id="AddressAddress1_{{ form.id }}" name="address[address1]" value="{{ form.address1 }}" autocomplete="address-line1" placeholder="{{ 'customer.addresses.address1' | t }}">
                                             </div>
                                             <div class="form-field">
                                                 <label class="form-label" for="AddressCity_{{ form.id }}">{{ 'customer.addresses.city' | t }}</label>
