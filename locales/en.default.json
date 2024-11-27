@@ -595,8 +595,8 @@
       "edit_address": "Edit Profile",
       "first_name": "First name",
       "last_name": "Last name",
-      "company": "Gender",
-      "address1": "DOB",
+      "gender": "Gender",
+      "date_of_birth": "DOB",
       "city": "City",
       "country": "Country",
       "province": "State",
@@ -623,7 +623,6 @@
       "guest_title": "Continue as a guest",
       "password": "Password",
       "title": "Sign in",
-      "sign_in": "Login",
       "submit": "Submit",
       "register": "Register",
       "text": "Please enter your email and password below to access your account"
@@ -673,6 +672,7 @@
       "last_name": "Last name",
       "city": "City",
       "gender": "Gnder",
+      "phone_number": "Phone Number",
       "email": "Email",
       "you_email": "Your Email Address",
       "password": "Password",
@@ -680,7 +680,6 @@
       "register": "Register",
       "submit": "Create An Account",
       "text": "Please register and create your account",
-      "phone_number": "Phone Number",
       "required": "*"
     },
     "reset_password": {

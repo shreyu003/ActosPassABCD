@@ -80,7 +80,7 @@ assign padding_full_width = section.settings.padding_full_width
                         <select class="form-input form-input-placeholder{% if form.errors contains " gender" %} error{%
                             endif %}" id="RegisterForm-Gender" name="customer[Gender]" {% if form.gender
                             %}value="{{ form.gender }}" {% endif %} required>
-                            <option value="" disabled> {{ 'customer.addresses.company' | t }} </option>
+                            <option value="" disabled> {{ 'customer.addresses.gender' | t }} </option>
                             <option value="male"> Male </option>
                             <option value="female"> Female </option>
                             <option value="other"> Other </option>
@@ -202,7 +202,8 @@ assign padding_full_width = section.settings.padding_full_width
                     // Mobile number exists
                     alert("Mobile number already exists. Redirecting to login page.");
                     window.location.href = "/account/login"; // Replace with your login page URL
-                } else if (data.otp) {
+                    return; 
+                } if (data.otp) {
                     // Mobile number does not exist OTP generated
                     document.getElementById("otp-input").style.display = "block";
                     window.otpCheck = data.otp; // Store the OTP globally for verification

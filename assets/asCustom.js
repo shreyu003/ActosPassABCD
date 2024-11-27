@@ -45,7 +45,6 @@ fetch("https://actopassapidev.actoscript.com/api/City")
 // Define sections to filter and the criteria
 const sections = [
     { cards: [...document.querySelectorAll('.product_card')], errorMsg: '.error_msg[data-section="product"]', maxVisible: 8 },
-    { cards: [...document.querySelectorAll('.venue_card')], errorMsg: '.error_msg[data-section="venue"]', maxVisible: 4 },
     { cards: [...document.querySelectorAll('.productColumn4')], errorMsg: '.error_msg[data-section="productColumn4"]', maxVisible: 4 },
     { cards: [...document.querySelectorAll('.bstslr_card')], errorMsg: '.error_msg[data-section="bestSeller"]', maxVisible: 4 },
 ];

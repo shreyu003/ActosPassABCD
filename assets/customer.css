@@ -2,10 +2,6 @@
     background-color: var(--navigation-bg);
 }
 
-.login-rowItem .page-subheader {
-
-}
-
 .login-rowItem .form-message {
   margin-top: 20px;
 }
@@ -36,16 +32,6 @@
 .login-row {
   font-size: 0;
   letter-spacing: 0;
-}
-
-.login-rowItem {
-  padding-top: 30px;
-  padding-bottom: 50px
-}
-
-.login-rowRight {
-  padding-left: 15px;
-  padding-right: 15px;
 }
 
 .login-rowItem .page-subheader {
@@ -1021,9 +1007,6 @@
       justify-content: center;
       width: 100%;
   }
-  .login-rowLeft {
-    padding-right: 15px;
-  }
   .login-rowItem{
       width: 50%;
   }
@@ -1040,15 +1023,6 @@
 
   .login-item .login-action a + a{
       margin-top: 0;
-  }
-
-  /* Login Page */
-  .login-page .login-rowLeft {
-    padding-right: 60px;
-  }
-  .login-page .login-rowRight {
-    padding-left: 30px;
-    padding-right: 30px;
   }
   .account-list {
     margin-left: -10px;
@@ -1183,11 +1157,6 @@
 }
 
 @media (min-width: 1025px) {
-
-  .login-rowItem {
-    padding-top: 55px;
-    padding-bottom: 60px
-  }
   .login-page .login-rowLeft {
     width: calc(100% - 570px)
   }

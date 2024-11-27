@@ -202,18 +202,18 @@
                                                 <input class="form-input form-input-placeholder" type="text" id="AddressLastName_{{ form.id }}" name="address[last_name]" value="{{ form.last_name }}" autocomplete="family-name" placeholder="{{ 'customer.addresses.last_name' | t }}">
                                             </div>
                                             <div class="form-field">
-                                                <label class="form-label" for="AddressCompany_{{ form.id }}">
-                                                    {{ 'customer.addresses.company' | t }}
+                                                <label class="form-label" for="AddressGender_{{ form.id }}">
+                                                    {{ 'customer.addresses.gender' | t }}
                                                 </label>
                                                 <div class="form__select select">
                                                     <select
                                                         class="select__select"
-                                                        id="AddressCompanyNew"
-                                                        name="address[company]"
-                                                        data-default="{{ form.company }}"
+                                                        id="AddressGenderNew"
+                                                        name="address[gender]"
+                                                        data-default="{{ form.Gender }}"
                                                         autocomplete="organization"
                                                     >
-                                                        <option value=""> {{ 'customer.addresses.company' | t }} </option>
+                                                        <option value=""> {{ 'customer.addresses.gender' | t }} </option>
                                                         <option value="male"> Male </option>
                                                         <option value="female"> Female </option>
                                                         <option value="other"> Other </option>
@@ -221,10 +221,10 @@
                                                 </div>
                                             </div>
                                             <div class="form-field">
-                                                <label class="form-label" for="AddressAddress1_{{ form.id }}">
-                                                    {{ 'customer.addresses.address1' | t }}
+                                                <label class="form-label" for="AddressDateOfBirth_{{ form.id }}">
+                                                    {{ 'customer.addresses.date_of_birth' | t }}
                                                 </label>
-                                                <input class="form-input form-input-placeholder as-date-design" type="date" id="AddressAddress1_{{ form.id }}" name="address[address1]" value="{{ form.address1 }}" autocomplete="address-line1" placeholder="{{ 'customer.addresses.address1' | t }}">
+                                                <input class="form-input form-input-placeholder as-date-design" type="date" id="AddressDateOfBirth_{{ form.id }}" name="address[date_of_birth]" value="{{ form.DateOfBirth }}" autocomplete="address-line1" placeholder="{{ 'customer.addresses.date_of_birth' | t }}">
                                             </div>
                                             <div class="form-field">
                                                 <label class="form-label" for="AddressCity_{{ form.id }}">{{ 'customer.addresses.city' | t }}</label>

@@ -1,0 +1,142 @@
+<style>
+    .faq-main{
+        padding-top: {{ section.settings.padding-top-desk }}px;
+        padding-bottom: {{ section.settings.padding-bottom-desk }}px;
+    }
+
+    @media screen and (max-width: 768px){
+        .faq-main{
+            padding-top: {{ section.settings.padding-top-tab }}px;
+            padding-bottom: {{ section.settings.padding-bottom-tab }}px;
+        }
+    }
+
+    @media screen and (max-width: 425px){
+        .faq-main{
+            padding-top: {{ section.settings.padding-top-mbl }}px;
+            padding-bottom: {{ section.settings.padding-bottom-mbl }}px;
+        }
+    }
+</style>
+
+<section class="faq-main">
+    <div class="container-1170">
+        <div class="as_faq_wrapper">
+            {% for block in section.blocks %}
+                <div>
+                    <div class="as_faq_block"> 
+                        {{ block.settings.ttl_icon }}
+                        <h3> {{ block.settings.ttl_txt }} </h3>
+                    </div>
+                    <div>
+                        <p> {{ block.settings.desc_txt }} </p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>            
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "as faqs section",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Specing Top"
+        },
+        {
+            "type": "range",
+            "id": "padding-top-desk",
+            "label": "Desktop",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding-top-tab",
+            "label": "Tablet",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px" 
+        },
+        {
+            "type": "range",
+            "id": "padding-top-mbl",
+            "label": "Mobile",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px" 
+        },
+        {
+            "type": "header",
+            "content": "Specing Bottom"
+        },
+        {
+            "type": "range",
+            "id": "padding-bottom-desk",
+            "label": "Desktop",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding-bottom-tab",
+            "label": "Tablet",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px" 
+        },
+        {
+            "type": "range",
+            "id": "padding-bottom-mbl",
+            "label": "Mobile",
+            "min": 0,
+            "max": 100,
+            "default": 50,
+            "step": 5,
+            "unit": "px" 
+        }
+    ],
+    "blocks": [
+        {
+            "type": "text",
+            "name": "Add FAQs",
+            "settings": [
+                {
+                    "type": "html",
+                    "id": "ttl_icon",
+                    "label": "Add Icon"
+                },
+                {
+                    "type": "textarea",
+                    "id": "ttl_txt",
+                    "label": "Add Title"
+                },
+                {
+                    "type": "textarea",
+                    "id": "desc_txt",
+                    "label": "Add Description"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "As Faqs Section"
+        }
+    ]
+}
+{% endschema %}

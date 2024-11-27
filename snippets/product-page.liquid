@@ -533,17 +533,10 @@
                                 %}
                             </div>
                         {%- when 'short_description' -%}
-                            <div class="as-md-none productView-moreItem{% if settings.banner_animation == 'effect_fade_up' %} scroll-trigger animate--slide-in{% endif %}"
-                                style="--spacing-top: {{ spacing_top | append: 'px' }};
-                                        --spacing-bottom: {{ spacing_bottom | append: 'px' }}">
-                                {% render 'product-short-description',
-                                block: block,
-                                product: product,
-                                fontsize_text: fontsize_text,
-                                color_text: color_text
-                                %}
+                            <div>
+                                {{ product.description | truncate: 140 }}
                             </div>
-                            {% when 'timing-block' %}
+                        {% when 'timing-block' %}
                             <div class="as-time-accrdn">
                                 <div class="as-custom-accrdn">
                                     <div class="as-custom-accrdn-header asCustomAccrdnHeader">
@@ -586,7 +579,9 @@
                                     </div>
                                     <div class="as-custom-accrdn-body asCustomAccrdnBody">
                                         <div class="highlightcontent">
-                                            <div>{{ product.metafields.custom.extra_information_block }}</div>
+                                            <div>
+                                                {{ product.metafields.custom.event_information1 | metafield_tag }}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>    
@@ -603,12 +598,13 @@
                                     </div>
                                     <div class="as-custom-accrdn-body asCustomAccrdnBody">
                                         <div class="highlightcontent">
-                                            <div>{{ product.metafields.custom.extra_information_block2 }}</div>
+                                            <div>
+                                                {{ product.metafields.custom.event_information2 |  metafield_tag }}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-    
                         {% when 'loaction-block' %}
                             <div class="loaction_block">
                                 <div class="loaction_block-inner">
@@ -623,8 +619,8 @@
                                     </div>
                                     <div class="loaction_block-right">
                                         <div>
-                                            <a href="javascript:void(0)" class="event_addr"> {{ product.metafields.custom.event_venue }} </a>
-                                            <p class="event_fulladdr"> {{ product.metafields.custom.event_address }}</p>
+                                            <p class="event_fulladdr"> {{ product.metafields.custom.event_address | truncate: 50 }}</p>
+                                            <a href="{{ product.metafields.custom.event_direction }}" target="_blank" class="event_addr"> {{ block.settings.view_direction_txt }} </a>
                                         </div>
                                     </div>
                                 </div>

@@ -1,90 +1,191 @@
-<section class="section-space2">
-    <div class="container-1170">
-        <div class="client_slider_inner">
-            <div>
-                <div class="swiper logo-swiper">
-                    <div class="swiper-wrapper">
-                        {% for block in section.blocks %}
-                           <div class="swiper-slide">
-                                <img src="{{ block.clinet_logo_image |  img_url: '' }}" alt="Client Logo" />
-                            </div>
-                        {% endfor %}
-                    </div>
+<style>
+    .client-slider-main{
+        padding-top: {{ section.settings.padding-top-desk }}px;
+        padding-bottom: {{ section.settings.padding-bottom-desk }}px;
+    }
+    @media screen and (max-width: 768px){
+        .client-slider-main{
+            padding-top: {{ section.settings.padding-top-tab }}px;
+            padding-bottom: {{ section.settings.padding-bottom-tab }}px;
+        }
+    }
+    @media screen and (max-width: 425px){
+        .client-slider-main{
+            padding-top: {{ section.settings.padding-top-mbl }}px;
+            padding-bottom: {{ section.settings.padding-bottom-mbl }}px;
+        }
+    }
+</style>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<section class="client-slider-main">
+    <div class="container">
+        <div class="main_slider">
+            <div class="slider-main as-main-slider">
+                {% for block in section.blocks %}
+                <div>
+                    {% if block.settings.slide_image %}
+                    <img src="{{ block.settings.slide_image | img_url: '1024x1024' }}" alt="Slide Image">
+                    {% endif %}
                 </div>
+                {% endfor %}
             </div>
-            <div>
-                <div class="swiper feedback-swiper">
-                    <div class="swiper-wrapper">
-                        {% for block in section.blocks %}
-                            <div class="swiper-slide">
-                                <p>{{ block.client_feedback }}</p>
-                            </div>
-                        {% endfor %}
-                    </div>
+
+            <div class="slider-text as-below-slider">
+                {% for block in section.blocks %}
+                <div>
+                    <p class="client-feedback">{{ block.settings.slide_text }}</p>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>
 </section>
 
 <script>
-    function updateSlideOpacity(swiper) {
-      swiper.slides.forEach((slide, index) => {
-        slide.style.opacity = index === swiper.activeIndex ? '1' : '0.4';
-      });
-    }
+    $(document).ready(function () {
+        // Initialize the main image slider
+        $('.slider-main').slick({
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: {{ section.settings.autoplay_delay }},
+            centerMode: true,
+            focusOnSelect: true,
+            arrows: false,
+            asNavFor: '.slider-text',
+            responsive: [
+                { breakpoint: 1370, settings: { slidesToShow: 3 } },
+                { breakpoint: 480, settings: { slidesToShow: 1, centerMode: false } } // Simplified mobile settings
+            ]
+        });
 
-    var feedbackSwiper = new Swiper(".feedback-swiper", {
-        freeMode: true,
-        watchSlidesProgress: true,
+
+        // Initialize the text slider and sync with the main slider
+        $('.slider-text').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            fade: true, // Fade effect for smooth text transitions
+            asNavFor: '.slider-main',
+            arrows: false, // Hide navigation arrows for text
+            adaptiveHeight: true
+        });
+
+        // Refresh Slick sliders to ensure they sync correctly
+        $('.slider-main, .slider-text').slick('refresh');
     });
-    
-    var logoSwiper = new Swiper(".logo-swiper", {
-        spaceBetween: 10,
-        slidesPerView: 6,
-        centeredSlides: true,
-        loop: true,
-        on: {
-            slideChange: function () {
-                updateSlideOpacity(this);
-                feedbackSwiper.slideTo(this.activeIndex);
-            },
-            init: function () {
-                updateSlideOpacity(this);
-            }
-        }
-        thumbs: {
-            swiper: feedbackSwiper,
-        },
-    });
+    $(window).on('resize', function () {
+    $('.slider-main, .slider-text').slick('setPosition');
+});
 </script>
 
 {% schema %}
-{
-    "name": "As Client Slider",
-    "settings": [],
-    "blocks": [
-        {
-            "name": "Client Logo Slider",
-            "type": "image_picker",
-            "settings": [
-                {
-                    "type": "image_picker",
-                    "id": "clinet_logo_image",
-                    "label": "Add Client Logo"
-                },
-                {
-                    "type": "text",
-                    "id": "client_feedback",
-                    "label": "Add Client Feedback"
-                }
-            ]
-        }
-    ],
-    "presets": [
-        {
-            "name": "As Client Slider"
-        }
-    ]
-}
-{% endschema %}
+    {
+        "name": "as clients slider",
+        "settings": [
+            {
+                "type": "range",
+                "id": "autoplay_delay",
+                "label": "Autoplay Delay (ms)",
+                "default": 2000,
+                "min": 1000,
+                "max": 7000,
+                "step": 500
+            },
+            {
+                "type": "header",
+                "content": "Space Top"
+            },
+            {
+                "type": "range",
+                "id": "padding-top-desk",
+                "label": "Desktop",
+                "min": 0,
+                "max": 100,
+                "default": 50,
+                "step": 5,
+                "unit": "px"
+            },
+            {
+                "type": "range",
+                "id": "padding-top-tab",
+                "label": "Tablet",
+                "min": 0,
+                "max": 100,
+                "default": 50,
+                "step": 5,
+                "unit": "px"
+            },
+            {
+                "type": "range",
+                "id": "padding-top-mbl",
+                "label": "Mobile",
+                "min": 0,
+                "max": 100,
+                "default": 50,
+                "step": 5,
+                "unit": "px"
+            },
+            {
+                "type": "header",
+                "content": "Space Bottom"
+            },
+            {
+                "type": "range",
+                "id": "padding-bottom-desk",
+                "label": "Desktop",
+                "min": 0,
+                "max": 100,
+                "default": 50,
+                "step": 5,
+                "unit": "px"
+            },
+            {
+                "type": "range",
+                "id": "padding-bottom-tab",
+                "label": "Tablet",
+                "min": 0,
+                "max": 100,
+                "default": 50,
+                "step": 5,
+                "unit": "px"
+            },
+            {
+                "type": "range",
+                "id": "padding-bottom-mbl",
+                "label": "Mobile",
+                "min": 0,
+                "max": 100,
+                "default": 50,
+                "step": 5,
+                "unit": "px"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "slide",
+                "name": "Slide",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "slide_image",
+                        "label": "Slide Image"
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "slide_text",
+                        "label": "Slide Text",
+                        "default": "Sample text for this slide"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "As Clients Slider"
+            }
+        ]
+    }
+    {% endschema %}
